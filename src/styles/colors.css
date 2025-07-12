@@ -1,0 +1,29 @@
+/* src/lib/styles/colors.css */
+
+/* === LIGHT THEME === */
+:root {
+  /* Brand */
+  --color-brand-primary: rgba(255, 245, 0, 1);
+  --color-brand-secondary: #282828;
+  --color-brand-accent: #7cc6bd;
+  --color-brand-muted: #fdf1ec;
+  --color-brand-dark: #2a2a2a;
+
+  /* UI */
+  --color-ui-background: #fffaf7;
+  --color-ui-surface: #ffffff;
+  --color-ui-border: #e2e2e2;
+  --color-ui-hover: #ffe1d8;
+
+  /* Text */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #888;
+
+  /* States */
+  --color-state-success: #4caf50;
+  --color-state-warning: #ff9800;
+  --color-state-error: #f44336;
+}
+
+/* === DARK THEME === */
