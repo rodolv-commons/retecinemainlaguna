@@ -1,3 +1,10 @@
+# Rete Cinema In Laguna
+
+[![Tests](hhttps://github.com/rodolv-commons/retecinemainlaguna/actions/workflows/test.yml/badge.svg)](https://github.com/rodolv-commons/retecinemainlaguna/actions/workflows/test.yml)
+
+...
+
+
 # Rete cinema in laguna
 
 
