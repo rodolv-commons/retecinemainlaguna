@@ -1,6 +1,6 @@
 # Rete Cinema In Laguna
 
-[![Tests](hhttps://github.com/rodolv-commons/retecinemainlaguna/actions/workflows/test.yml/badge.svg)](https://github.com/rodolv-commons/retecinemainlaguna/actions/workflows/test.yml)
+[![Tests](https://github.com/rodolv-commons/retecinemainlaguna/actions/workflows/test.yml/badge.svg)](https://github.com/rodolv-commons/retecinemainlaguna/actions/workflows/test.yml)
 
 ...
 
