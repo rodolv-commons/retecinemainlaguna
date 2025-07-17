@@ -4,7 +4,7 @@
 :root {
 	/* Brand */
 	--color-brand-primary: rgba(255, 245, 0, 1);
-	--color-brand-secondary: #282828;
+	--color-brand-secondary: rgb(0,0,0);
 	--color-brand-accent: #7cc6bd;
 	--color-brand-muted: #fdf1ec;
 	--color-brand-dark: #2a2a2a;

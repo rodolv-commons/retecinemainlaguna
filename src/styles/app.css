@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import '@fontsource/fira-mono';
 @plugin '@tailwindcss/typography';
+@import './colors.css';
 
 :root {
 	--font-body:
@@ -104,4 +105,18 @@ button:focus:not(:focus-visible) {
 	position: absolute;
 	width: 1px;
 	white-space: nowrap;
+}
+
+.bar {
+  height: 3px;
+  z-index: 301;
+  background-color: rgb(255, 245, 0);
+  border-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  border-style: solid;
+  border-width: 0px;
+  box-sizing: border-box;
+  filter: drop-shadow(rgb(255, 245, 0) 2px 2px 4px);
+  backface-visibility: visible;
+  will-change: filter, scroll-position, contents;
 }
