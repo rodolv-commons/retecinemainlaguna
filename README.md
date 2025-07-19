@@ -2,7 +2,6 @@
 
 [![Tests](https://github.com/rodolv-commons/retecinemainlaguna/actions/workflows/ci.yml/badge.svg)](https://github.com/rodolv-commons/retecinemainlaguna/actions/workflows/ci.yml)
 
-
 ...
 
 # Rete cinema in laguna

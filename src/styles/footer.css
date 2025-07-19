@@ -1,13 +1,12 @@
-
 footer {
-  background-color: var(--color-brand-secondary);
-  color: var(--color-brand-primary);
+	background-color: var(--color-brand-secondary);
+	color: var(--color-brand-primary);
 }
 .footer__wrapper {
-  height: 200px;
-  display: flex;
-  width: 75%;
-  margin: 0 auto;
-  justify-content: space-between;
-  padding: 30px;
+	height: 200px;
+	display: flex;
+	width: 75%;
+	margin: 0 auto;
+	justify-content: space-between;
+	padding: 30px;
 }
