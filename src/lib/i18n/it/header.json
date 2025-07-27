@@ -1,4 +1,54 @@
 {
-	"title": "Benvenuti al Festival",
-	"email": "Contattaci a"
+	"about": {
+		"label": "Chi siamo",
+		"entries": {
+			"association": "L'associazione",
+			"mission": "Statuto/Missione",
+			"team": "Team e collaboratori",
+			"contacts": "Sedi e contatti"
+		}
+	},
+	"activities": {
+		"label": "Attività",
+		"entries": {
+			"screenings": "Rassegne e proiezioni",
+			"workshops": "Laboratori / Formazione",
+			"collaborations": "Collaborazioni",
+			"archive": "Archivio eventi"
+		}
+	},
+	"festival": {
+		"label": "Festival",
+		"entries": {
+			"overview": "Presentazione del Festival",
+			"program": "Programma edizione corrente",
+			"participate": "Call for entries / Partecipa",
+			"archive": "Archivio edizioni precedenti",
+			"guests": "Ospiti / Giuria",
+			"partners": "Partner e sponsor"
+		}
+	},
+	"news": {
+		"label": "News & Media",
+		"entries": {
+			"articles": "Articoli e comunicati",
+			"press": "Rassegna stampa",
+			"media": "Foto e video"
+		}
+	},
+	"support": {
+		"label": "Sostienici",
+		"entries": {
+			"member": "Diventa socio",
+			"donations": "Donazioni",
+			"volunteering": "Volontariato"
+		}
+	},
+	"newsletter": {
+		"label": "Newsletter",
+		"entries": {
+			"subscribe": "Iscriviti",
+			"archive": "Archivio invii"
+		}
+	}
 }

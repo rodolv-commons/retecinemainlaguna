@@ -3,6 +3,7 @@
 @plugin '@tailwindcss/typography';
 @import './colors.css';
 @import './size.css';
+@import '../../app.css';
 
 :root {
 	--font-body:
@@ -78,16 +79,6 @@ pre {
 	flex-direction: column;
 	justify-content: center;
 	margin: 0 auto;
-}
-
-input,
-button {
-	font-size: inherit;
-	font-family: inherit;
-}
-
-button:focus:not(:focus-visible) {
-	outline: none;
 }
 
 @media (min-width: 720px) {

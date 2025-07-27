@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../app.css';
 	import '$lib/i18n';
 	import '$lib/styles/app.css';
 	import Header from '$lib/components/Header.svelte';
