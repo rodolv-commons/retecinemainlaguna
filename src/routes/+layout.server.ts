@@ -31,6 +31,8 @@ export const load = async ({ url, cookies, request }) => {
 		locale = defaultLocale;
 	}
 
+	locale = defaultLocale; // Force to italian as default
+
 	await loadTranslations(locale, pathname); // keep this just before the `return`
 
 	return {

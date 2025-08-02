@@ -23,6 +23,16 @@ const config = {
 			locale: 'it',
 			key: 'header',
 			loader: async () => (await import('./it/header.json')).default
+		},
+		{
+			locale: 'en',
+			key: 'program',
+			loader: async () => (await import('./en/program.json')).default
+		},
+		{
+			locale: 'it',
+			key: 'program',
+			loader: async () => (await import('./it/program.json')).default
 		}
 	]
 };

@@ -1,0 +1,59 @@
+.festival__wrapper {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.top__wrapper {
+	display: flex;
+	margin-left: 15%;
+}
+
+.top__title {
+	padding-top: calc(var(--spacing-unit) * 6);
+	font-size: 34px;
+	line-height: 48px;
+	letter-spacing: 0.08px;
+	height: 720px;
+}
+
+.top__animated {
+	z-index: -1;
+	background-color: blue;
+	width: 55%;
+	height: 720px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.background-video {
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+	position: absolute;
+	top: 0;
+	left: 0;
+	mix-blend-mode: lighten;
+	filter: brightness(1.1) contrast(1.3) saturate(1.2);
+	opacity: 0.9;
+	transition: filter 1s ease-in-out;
+}
+
+.festival__middle__wrapper {
+	background-color: #f2e8b5;
+	height: 350px;
+	opacity: 0.3;
+}
+
+.festival__middle__title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	padding: 0 20px;
+}

@@ -36,3 +36,10 @@
 	--space-xl: 2rem; /* 32px */
 	--space-2xl: 3rem; /* 48px */
 }
+
+/* === header === */
+
+:root {
+	--header-height: 50px;
+	--spacing-unit: 12px;
+}

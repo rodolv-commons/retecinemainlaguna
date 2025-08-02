@@ -1,12 +1,12 @@
 footer {
-	background-color: var(--color-brand-secondary);
-	color: var(--color-brand-primary);
+	/* background-color: var(--color-brand-secondary);
+	color: var(--color-brand-primary); */
+	height: calc(var(--spacing-unit) * 30);
 }
 .footer__wrapper {
-	height: 200px;
-	display: flex;
-	width: 75%;
+	display: grid;
+	width: 90%;
 	margin: 0 auto;
-	justify-content: space-between;
-	padding: 30px;
+	padding: calc(var(--spacing-unit) * 2);
+	border: 1px solid red;
 }

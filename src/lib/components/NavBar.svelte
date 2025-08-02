@@ -41,7 +41,7 @@
 				<ul class="dropdown-menu">
 					{#each entriesFor(menuTitle) as menuItem (menuItem)}
 						<li class="dropdown-item">
-							<a href="/">{$t(`header.${menuTitle}.entries.${menuItem}`)}</a>
+							<a href={'/' + menuItem}>{$t(`header.${menuTitle}.entries.${menuItem}`)}</a>
 						</li>
 					{/each}
 				</ul>
@@ -51,13 +51,6 @@
 </nav>
 
 <style>
-	/* Navbar container */
-	.navbar {
-		background-color: #ffffff;
-		border-bottom: 1px solid #ddd;
-		font-family: sans-serif;
-	}
-
 	/* Horizontal list of top-level items */
 	.nav-list {
 		display: flex;
@@ -72,17 +65,12 @@
 		cursor: pointer;
 	}
 
-	.nav-item:hover {
-		background-color: #f5f5f5;
-	}
-
 	/* Hide the dropdown by default */
 	.dropdown-menu {
 		display: none;
 		position: absolute;
 		top: 100%; /* just below the parent */
 		left: 0;
-		background: #fff;
 		border: 1px solid #ddd;
 		margin: 0;
 		padding: 0.5rem 0;
