@@ -60,3 +60,13 @@ export interface FestivalEvent {
 	startDate: string; // ISO date
 	endDate?: string; // ISO date
 }
+
+export interface Event {
+	title: string; // e.g., "Opening Ceremony"
+	description: string; // Rich text (Markdown/HTML)
+	speaker?: string[]; // Name of the speaker
+	speakerBio?: string; // Optional short biography of the speaker
+	venue_id: string; // Venue where the event will be held
+	startDate: string; // ISO date
+	endDate?: string; // ISO date
+}

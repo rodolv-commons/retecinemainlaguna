@@ -6,8 +6,9 @@
 	import type { LayoutData } from '../$types';
 	import { Card, Button, Toggle } from 'flowbite-svelte';
 	import { ArrowRightOutline } from 'flowbite-svelte-icons';
-	let vCard = false;
+	import type { FestivalEvent, Screening } from '$lib/types/Film';
 
+	let vCard = false;
 	let video: HTMLVideoElement;
 
 	onMount(() => {
@@ -21,8 +22,21 @@
 	console.log('films', films);
 	console.log('directors', directors);
 	console.log('venues', venues);
-	console.log('screenings', screenings);
-	console.log('festivalEvents', festivalEvents);
+
+	// Loop over festivalEvents array to extract unique days
+	// Assuming each event has a 'startDate' property in the format 2025-09-20T18:00:00
+	const festivalEventDays = new Set(
+		festivalEvents.map((event: FestivalEvent) => new Date(event.startDate).getDate())
+	);
+
+	const screeningsDays = new Set(
+		screenings.map((screening: Screening) => new Date(screening.datetime).getDate())
+	);
+
+	// Merge both sets to get unique days from both festival events and screenings
+	const festivalDays = Array.from(new Set([...festivalEventDays, ...screeningsDays]))
+		.map((day) => Number(day))
+		.sort((a, b) => a - b);
 </script>
 
 <svelte:head>
@@ -56,11 +70,9 @@
 	<div class="festival__bottom__wrapper">
 		<div class="schedule__wrapper">
 			<ul class="date-selector__list">
-				<li class="date-selector__item">1</li>
-				<li class="date-selector__item">2</li>
-				<li class="date-selector__item">3</li>
-				<li class="date-selector__item">4</li>
-				<li class="date-selector__item">5</li>
+				{#each festivalDays as festivalDay (festivalDay)}
+					<li class="date-selector__item">{festivalDay}</li>
+				{/each}
 			</ul>
 		</div>
 	</div>
