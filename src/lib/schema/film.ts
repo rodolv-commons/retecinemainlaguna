@@ -1,0 +1,81 @@
+import { z } from 'zod';
+import type { Film, Director, Event, Venue, Screening } from '$lib/types/Film';
+
+// Tipi base
+export const GenreSchema = z.object({
+	name: z.string()
+});
+
+export const DirectorSchema: z.ZodType<Director> = z.object({
+	name: z.string(),
+	id: z.string(),
+	image: z.url().optional(),
+	biography: z.string().optional(),
+	birthDate: z.string().optional(),
+	filmography: z.string().transform((s) => s.split(','))
+});
+
+// SCREENING
+export const ScreeningSchema: z.ZodType<Screening> = z.lazy(() =>
+	z.object({
+		datetime: z.string(),
+		film_id: z.string(),
+		venue_id: z.string()
+	})
+);
+
+// EVENT
+export const EventSchema: z.ZodType<Event> = z.lazy(() =>
+	z.object({
+		description: z.string(),
+		endDate: z.string(),
+		location: z.string().optional(),
+		screenings: z.array(ScreeningSchema).optional(),
+		startDate: z.string(),
+		title: z.string()
+	})
+);
+
+// VENUE
+export const VenueSchema: z.ZodType<Venue> = z.lazy(() =>
+	z.object({
+		address: z.string(),
+		city: z.string(),
+		id: z.string(),
+		mapLink: z.string().url().optional(),
+		name: z.string(),
+		screenings: z.array(ScreeningSchema).optional()
+	})
+);
+
+// FILM
+export const FilmSchema: z.ZodType<Film> = z.lazy(() =>
+	z.object({
+		cast: z.string().transform((s) => s.split(',')),
+		director_id: z.string(),
+		duration: z.coerce.number().int(),
+		editing: z.string(),
+		genres: z.string().transform((val) =>
+			val
+				.split(',')
+				.map((g) => g.trim())
+				.map((name) => GenreSchema.parse({ name }))
+		),
+		id: z.string(),
+		format: z.string(),
+		image: z.string(),
+		languages: z.string().transform((s) => s.split(',')),
+		music: z.string(),
+		originalTitle: z.string(),
+		originalVersion: z.coerce.boolean(),
+		producers: z.string().transform((s) => s.split(',')),
+		production: z.string(),
+		screenings: z.array(ScreeningSchema).optional(),
+		screenplay: z.string().transform((s) => s.split(',')),
+		sound: z.string(),
+		synopsis: z.string(),
+		title: z.string(),
+		tone: z.string(),
+		year: z.coerce.number().int()
+	})
+);

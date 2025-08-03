@@ -1,14 +1,27 @@
 <script lang="ts">
 	import waves from '$lib/images/motion_waves.mp4';
+	import programPDF from '$lib/assets/program.pdf';
 	import { t } from '$lib/i18n';
-
 	import { onMount } from 'svelte';
+	import type { LayoutData } from '../$types';
+	import { Card, Button, Toggle } from 'flowbite-svelte';
+	import { ArrowRightOutline } from 'flowbite-svelte-icons';
+	let vCard = false;
+
 	let video: HTMLVideoElement;
 
 	onMount(() => {
 		video.playbackRate = 0.3;
 		video.play();
 	});
+
+	// just `export let data`:
+	export let data: LayoutData;
+	const { films, directors, venues, screenings } = data;
+	console.log('films', films);
+	console.log('directors', directors);
+	console.log('venues', venues);
+	console.log('screenings', screenings);
 </script>
 
 <svelte:head>
@@ -33,9 +46,26 @@
 		</div>
 	</div>
 	<div class="festival__middle__wrapper">
-		<div class="festival__middle__title text-column">
-			<h2>{$t('program.title')}</h2>
-			<p>{$t('program.subtitle')}</p>
+		<div class="download-box">
+			<p class="download-text">Scarica il programma del festival in formato PDF</p>
+			<a href={programPDF} download class="download-button"> Scarica il PDF ⬇️ </a>
 		</div>
+	</div>
+	<div class="space-y-4">
+		<Card img="src/lib/images/hero_image.webp" reverse={vCard}>
+			<div class="m-6">
+				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+					Noteworthy technology acquisitions 2021
+				</h5>
+				<p class="mb-3 leading-tight font-normal text-gray-700 dark:text-gray-400">
+					Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
+					chronological order.
+				</p>
+				<Button class="w-40">
+					Read more <ArrowRightOutline class="ms-2 h-6 w-6 text-white" />
+				</Button>
+			</div>
+		</Card>
+		<Toggle bind:checked={vCard} class="italic dark:text-gray-500">Reverse</Toggle>
 	</div>
 </section>

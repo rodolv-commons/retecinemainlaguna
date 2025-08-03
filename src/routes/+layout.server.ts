@@ -1,4 +1,5 @@
 import { locales, loadTranslations, translations, defaultLocale } from '$lib/i18n';
+import { loadFilms, loadDirectors, loadScreenings, loadVenues } from '$lib/server/parseCsv';
 
 /** @type {import('@sveltejs/kit').ServerLoad} */
 export const load = async ({ url, cookies, request }) => {
@@ -35,8 +36,20 @@ export const load = async ({ url, cookies, request }) => {
 
 	await loadTranslations(locale, pathname); // keep this just before the `return`
 
+	// Load festival data once at root layout
+	const [films, directors, screenings, venues] = await Promise.all([
+		loadFilms(),
+		loadDirectors(),
+		loadScreenings(),
+		loadVenues()
+	]);
+
 	return {
 		i18n: { locale, route: pathname },
-		translations: translations.get() // `translations` on server contain all translations loaded by different clients
+		translations: translations.get(), // `translations` on server contain all translations loaded by different clients
+		films,
+		directors,
+		screenings,
+		venues
 	};
 };
