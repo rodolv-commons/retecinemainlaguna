@@ -44,17 +44,19 @@ export interface Venue {
 	screenings?: Screening[];
 }
 
-export interface Event {
-	description: string; // Rich text (Markdown/HTML)
-	endDate: string; // ISO date
-	location?: string;
-	screenings?: Screening[];
-	startDate: string; // ISO date
-	title: string;
-}
-
 export interface Screening {
 	film_id: string; // ID of the film being screened
 	datetime: string; // ISO datetime
 	venue_id: string;
+}
+
+export interface FestivalEvent {
+	title: string; // e.g., "Masterclass with John Doe"
+	description: string; // Rich text (Markdown/HTML)
+	category: string; // 'masterclass' | 'industry-day'; // Type of festival event
+	speaker?: string[]; // Name of the speaker
+	speakerBio?: string; // Optional short biography of the speaker
+	venue_id: string; // Venue where the masterclass will be held
+	startDate: string; // ISO date
+	endDate?: string; // ISO date
 }

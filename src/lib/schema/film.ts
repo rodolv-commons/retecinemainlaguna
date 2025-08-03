@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { Film, Director, Event, Venue, Screening } from '$lib/types/Film';
+import type { Film, Director, FestivalEvent, Venue, Screening } from '$lib/types/Film';
 
 // Tipi base
 export const GenreSchema = z.object({
@@ -25,13 +25,18 @@ export const ScreeningSchema: z.ZodType<Screening> = z.lazy(() =>
 );
 
 // EVENT
-export const EventSchema: z.ZodType<Event> = z.lazy(() =>
+export const FestivalEventSchema: z.ZodType<FestivalEvent> = z.lazy(() =>
 	z.object({
+		category: z.string(), // 'masterclass' | 'industry-day'
 		description: z.string(),
-		endDate: z.string(),
-		location: z.string().optional(),
-		screenings: z.array(ScreeningSchema).optional(),
+		venue_id: z.string(),
+		speaker: z
+			.string()
+			.transform((s) => s.split(','))
+			.optional(), // Name of the speaker
+		speakerBio: z.string().optional(), // Optional short biography of the speaker
 		startDate: z.string(),
+		endDate: z.string().optional(),
 		title: z.string()
 	})
 );
@@ -42,7 +47,7 @@ export const VenueSchema: z.ZodType<Venue> = z.lazy(() =>
 		address: z.string(),
 		city: z.string(),
 		id: z.string(),
-		mapLink: z.string().url().optional(),
+		mapLink: z.url().optional(),
 		name: z.string(),
 		screenings: z.array(ScreeningSchema).optional()
 	})

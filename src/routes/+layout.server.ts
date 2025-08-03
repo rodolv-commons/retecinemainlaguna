@@ -1,5 +1,11 @@
 import { locales, loadTranslations, translations, defaultLocale } from '$lib/i18n';
-import { loadFilms, loadDirectors, loadScreenings, loadVenues } from '$lib/server/parseCsv';
+import {
+	loadFilms,
+	loadDirectors,
+	loadScreenings,
+	loadVenues,
+	loadFestivalEvents
+} from '$lib/server/parseCsv';
 
 /** @type {import('@sveltejs/kit').ServerLoad} */
 export const load = async ({ url, cookies, request }) => {
@@ -37,11 +43,12 @@ export const load = async ({ url, cookies, request }) => {
 	await loadTranslations(locale, pathname); // keep this just before the `return`
 
 	// Load festival data once at root layout
-	const [films, directors, screenings, venues] = await Promise.all([
+	const [films, directors, screenings, venues, festivalEvents] = await Promise.all([
 		loadFilms(),
 		loadDirectors(),
 		loadScreenings(),
-		loadVenues()
+		loadVenues(),
+		loadFestivalEvents()
 	]);
 
 	return {
@@ -50,6 +57,7 @@ export const load = async ({ url, cookies, request }) => {
 		films,
 		directors,
 		screenings,
-		venues
+		venues,
+		festivalEvents
 	};
 };

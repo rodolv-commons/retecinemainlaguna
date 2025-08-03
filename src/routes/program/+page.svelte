@@ -17,11 +17,12 @@
 
 	// just `export let data`:
 	export let data: LayoutData;
-	const { films, directors, venues, screenings } = data;
+	const { films, directors, venues, screenings, festivalEvents } = data;
 	console.log('films', films);
 	console.log('directors', directors);
 	console.log('venues', venues);
 	console.log('screenings', screenings);
+	console.log('festivalEvents', festivalEvents);
 </script>
 
 <svelte:head>
@@ -51,6 +52,19 @@
 			<a href={programPDF} download class="download-button"> Scarica il PDF ⬇️ </a>
 		</div>
 	</div>
+
+	<div class="festival__bottom__wrapper">
+		<div class="schedule__wrapper">
+			<ul class="date-selector__list">
+				<li class="date-selector__item">1</li>
+				<li class="date-selector__item">2</li>
+				<li class="date-selector__item">3</li>
+				<li class="date-selector__item">4</li>
+				<li class="date-selector__item">5</li>
+			</ul>
+		</div>
+	</div>
+
 	<div class="space-y-4">
 		<Card img="src/lib/images/hero_image.webp" reverse={vCard}>
 			<div class="m-6">

@@ -4,9 +4,21 @@ import { parse } from 'csv-parse/sync';
 import type { ZodType } from 'zod';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { type Film, type Director, type Screening, type Venue } from '$lib/types/Film';
+import {
+	type Film,
+	type Director,
+	type Screening,
+	type Venue,
+	type FestivalEvent
+} from '$lib/types/Film';
 
-import { FilmSchema, DirectorSchema, ScreeningSchema, VenueSchema } from '$lib/schema/film';
+import {
+	FilmSchema,
+	DirectorSchema,
+	ScreeningSchema,
+	VenueSchema,
+	FestivalEventSchema
+} from '$lib/schema/film';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, '../data');
@@ -51,4 +63,10 @@ export async function loadVenues(): Promise<Venue[]> {
 	const file = path.join(DATA_DIR, 'venues.csv');
 	const content = await readFile(file, 'utf-8');
 	return parseCsvFile(content, VenueSchema);
+}
+
+export async function loadFestivalEvents(): Promise<FestivalEvent[]> {
+	const file = path.join(DATA_DIR, 'festival-events.csv');
+	const content = await readFile(file, 'utf-8');
+	return parseCsvFile(content, FestivalEventSchema);
 }

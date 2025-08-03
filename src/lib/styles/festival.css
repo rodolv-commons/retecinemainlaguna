@@ -45,7 +45,7 @@
 
 .festival__middle__wrapper {
 	background-color: #f2e8b5;
-	height: 350px;
+	height: 50px;
 	opacity: 0.3;
 }
 
@@ -56,4 +56,41 @@
 	align-items: center;
 	height: 100%;
 	padding: 0 20px;
+}
+
+.date-selector__list {
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	gap: 0.5rem;
+	padding: 0 0 1rem 0;
+	margin: 0;
+	list-style: none;
+	overflow-x: auto;
+	border: 1px solid #ccc;
+}
+
+.date-selector__item {
+	min-width: 48px;
+	min-height: 48px;
+	border: 2px solid #171717;
+	border-radius: 50%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	cursor: pointer;
+	-webkit-transition: 0.3s ease all;
+	transition: 0.3s ease all;
+}
+
+.date-selector__item:hover {
+	background-color: var(--color-brand-primary);
+	color: var(--color-brand-secondary);
 }
