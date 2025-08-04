@@ -15,6 +15,7 @@ export interface Film {
 	production: string; // e.g., "Paramount Pictures", "Walt Disney Pictures"
 	screenings?: Screening[];
 	screenplay: string[]; // e.g., Chris Columbus, Steven Spielberg
+	// section: string; // e.g., "Concorso", "Fuori Concorso"
 	sound: string; // e.g., "Randy Thom"
 	synopsis: string;
 	title: string;

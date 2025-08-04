@@ -1,42 +1,72 @@
 <script lang="ts">
-	import waves from '$lib/images/motion_waves.mp4';
 	import programPDF from '$lib/assets/program.pdf';
+	import waves from '$lib/images/motion_waves.mp4';
 	import { t } from '$lib/i18n';
-	import { onMount } from 'svelte';
-	import type { LayoutData } from '../$types';
-	import { Card, Button, Toggle } from 'flowbite-svelte';
+	import { Card, Button } from 'flowbite-svelte';
 	import { ArrowRightOutline } from 'flowbite-svelte-icons';
-	import type { FestivalEvent, Screening } from '$lib/types/Film';
+	import type { PageData } from './$types';
+	import type { FestivalEvent, Screening, Film, Venue } from '$lib/types/Film';
 
-	let vCard = false;
-	let video: HTMLVideoElement;
+	interface EventsForDay {
+		type: FestivalEvent | Screening;
+		film?: Film; // optional, if you want to include film title
+		venue: Venue;
+		time: Date;
+	}
 
-	onMount(() => {
-		video.playbackRate = 0.3;
-		video.play();
-	});
+	export function isEventDay(obj: unknown): obj is FestivalEvent {
+		return (
+			obj !== null &&
+			typeof obj === 'object' &&
+			'type' in obj &&
+			(obj as { type?: unknown }).type === 'event' &&
+			'title' in obj &&
+			typeof (obj as { title?: unknown }).title === 'string' &&
+			'startDate' in obj &&
+			(obj as { startDate?: unknown }).startDate instanceof Date
+		);
+	}
+	export function isScreeningDay(obj: unknown): obj is Screening {
+		return (
+			obj !== null &&
+			typeof obj === 'object' &&
+			(obj as { type?: unknown }).type === 'screening' &&
+			typeof (obj as { film_id?: unknown }).film_id === 'number' &&
+			(obj as { datetime?: unknown }).datetime instanceof Date
+		);
+	}
 
-	// just `export let data`:
-	export let data: LayoutData;
-	const { films, directors, venues, screenings, festivalEvents } = data;
-	console.log('films', films);
-	console.log('directors', directors);
-	console.log('venues', venues);
+	// destructure festivalDays (and anything else)
+	export let data: PageData;
+	const { festivalDays, festivalEvents, screenings, films, venues } = data;
+	let selectedDay: number = festivalDays[0];
+	let eventsForDay: EventsForDay[] = [];
 
-	// Loop over festivalEvents array to extract unique days
-	// Assuming each event has a 'startDate' property in the format 2025-09-20T18:00:00
-	const festivalEventDays = new Set(
-		festivalEvents.map((event: FestivalEvent) => new Date(event.startDate).getDate())
-	);
+	// whenever selectedDay changes, build the merged, sorted list
+	$: eventsForDay = (() => {
+		if (selectedDay === null) return [];
+		const dayEvents = festivalEvents.filter(
+			(event: FestivalEvent) => new Date(event.startDate).getDate() === selectedDay
+		);
+		const dayScreenings = screenings.filter(
+			(screening: Screening) => new Date(screening.datetime).getDate() === selectedDay
+		);
 
-	const screeningsDays = new Set(
-		screenings.map((screening: Screening) => new Date(screening.datetime).getDate())
-	);
-
-	// Merge both sets to get unique days from both festival events and screenings
-	const festivalDays = Array.from(new Set([...festivalEventDays, ...screeningsDays]))
-		.map((day) => Number(day))
-		.sort((a, b) => a - b);
+		return [
+			...dayEvents.map((event: FestivalEvent) => ({
+				type: event,
+				venue: venues.find((venue: Venue) => venue.id === event.venue_id),
+				time: new Date(event.startDate)
+			})),
+			...dayScreenings.map((screening: Screening) => ({
+				type: screening,
+				screening,
+				venue: venues.find((venue: Venue) => venue.id === screening.venue_id),
+				film: films.find((film: Film) => film.id === screening.film_id),
+				time: new Date(screening.datetime)
+			}))
+		].sort((a, b) => a.time.getTime() - b.time.getTime());
+	})();
 </script>
 
 <svelte:head>
@@ -52,7 +82,7 @@
 		</div>
 		<div class="top__animated">
 			<div>
-				<video class="background-video" bind:this={video} autoplay muted loop playsinline>
+				<video class="background-video" autoplay muted loop playsinline>
 					<source src={waves} type="video/mp4" />
 
 					Your browser does not support the video tag.
@@ -70,28 +100,37 @@
 	<div class="festival__bottom__wrapper">
 		<div class="schedule__wrapper">
 			<ul class="date-selector__list">
-				{#each festivalDays as festivalDay (festivalDay)}
-					<li class="date-selector__item">{festivalDay}</li>
+				{#each festivalDays as day (day)}
+					<button
+						type="button"
+						class:selected={day === selectedDay}
+						on:click={() => (selectedDay = day)}
+					>
+						<li class="date-selector__item">{day}</li>
+					</button>
 				{/each}
 			</ul>
+			{#if selectedDay !== null && eventsForDay.length > 0}
+				<h2>Eventi per il giorno {selectedDay}</h2>
+				<ul class="events-for-day__list">
+					{#each eventsForDay as event (event)}
+						<Card img="src/lib/images/hero_image.webp">
+							<div class="m-6">
+								<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+									{isEventDay(event.type) ? event.venue.address : event.film?.title}
+								</h5>
+								<p class="mb-3 leading-tight font-normal text-gray-700 dark:text-gray-400">
+									Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
+									chronological order.
+								</p>
+								<Button class="w-40">
+									Read more <ArrowRightOutline class="ms-2 h-6 w-6 text-white" />
+								</Button>
+							</div>
+						</Card>
+					{/each}
+				</ul>
+			{/if}
 		</div>
-	</div>
-
-	<div class="space-y-4">
-		<Card img="src/lib/images/hero_image.webp" reverse={vCard}>
-			<div class="m-6">
-				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-					Noteworthy technology acquisitions 2021
-				</h5>
-				<p class="mb-3 leading-tight font-normal text-gray-700 dark:text-gray-400">
-					Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
-					chronological order.
-				</p>
-				<Button class="w-40">
-					Read more <ArrowRightOutline class="ms-2 h-6 w-6 text-white" />
-				</Button>
-			</div>
-		</Card>
-		<Toggle bind:checked={vCard} class="italic dark:text-gray-500">Reverse</Toggle>
 	</div>
 </section>
