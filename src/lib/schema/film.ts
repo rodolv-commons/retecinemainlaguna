@@ -59,6 +59,7 @@ export const FilmSchema: z.ZodType<Film> = z.lazy(() =>
 		cast: z.string().transform((s) => s.split(',')),
 		director_id: z.string(),
 		duration: z.coerce.number().int(),
+		countryOfOrigin: z.string(),
 		editing: z.string(),
 		genres: z.string().transform((val) =>
 			val
@@ -77,10 +78,12 @@ export const FilmSchema: z.ZodType<Film> = z.lazy(() =>
 		production: z.string(),
 		screenings: z.array(ScreeningSchema).optional(),
 		screenplay: z.string().transform((s) => s.split(',')),
+		section: z.string(), // e.g., "ic", "ooc
 		sound: z.string(),
 		synopsis: z.string(),
 		title: z.string(),
 		tone: z.string(),
+		version: z.string(), // e.g., "if", "Omiu", "Omeu"
 		year: z.coerce.number().int()
 	})
 );

@@ -1,5 +1,4 @@
 <script lang="ts">
-	// import { page } from '$app/state';
 	import '../styles/footer.css';
 	import Icon from '@iconify/svelte';
 </script>

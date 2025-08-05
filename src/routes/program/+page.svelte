@@ -1,62 +1,38 @@
 <script lang="ts">
 	import programPDF from '$lib/assets/program.pdf';
 	import waves from '$lib/images/motion_waves.mp4';
-	import { t } from '$lib/i18n';
-	import { Card, Button } from 'flowbite-svelte';
-	import { ArrowRightOutline } from 'flowbite-svelte-icons';
+	import { t, locale as localeStore } from '$lib/i18n';
 	import type { PageData } from './$types';
 	import type { FestivalEvent, Screening, Film, Venue } from '$lib/types/Film';
-
-	interface EventsForDay {
-		type: FestivalEvent | Screening;
-		film?: Film; // optional, if you want to include film title
-		venue: Venue;
-		time: Date;
-	}
-
-	export function isEventDay(obj: unknown): obj is FestivalEvent {
-		return (
-			obj !== null &&
-			typeof obj === 'object' &&
-			'type' in obj &&
-			(obj as { type?: unknown }).type === 'event' &&
-			'title' in obj &&
-			typeof (obj as { title?: unknown }).title === 'string' &&
-			'startDate' in obj &&
-			(obj as { startDate?: unknown }).startDate instanceof Date
-		);
-	}
-	export function isScreeningDay(obj: unknown): obj is Screening {
-		return (
-			obj !== null &&
-			typeof obj === 'object' &&
-			(obj as { type?: unknown }).type === 'screening' &&
-			typeof (obj as { film_id?: unknown }).film_id === 'number' &&
-			(obj as { datetime?: unknown }).datetime instanceof Date
-		);
-	}
+	import type { EventsForDay } from '$lib/types/Film';
+	import ScreeningCard from '$lib/components/ScreeningCard.svelte';
+	import { isFestivalEvent } from '$lib/types/typeGuards';
 
 	// destructure festivalDays (and anything else)
 	export let data: PageData;
-	const { festivalDays, festivalEvents, screenings, films, venues } = data;
+	const { festivalDays, festivalEvents, screenings, films, venues, directors } = data;
 	let selectedDay: number = festivalDays[0];
 	let eventsForDay: EventsForDay[] = [];
+
+	// Reactive locale store
+	$: locale = $localeStore;
 
 	// whenever selectedDay changes, build the merged, sorted list
 	$: eventsForDay = (() => {
 		if (selectedDay === null) return [];
 		const dayEvents = festivalEvents.filter(
-			(event: FestivalEvent) => new Date(event.startDate).getDate() === selectedDay
+			(festivalEvent: FestivalEvent) => new Date(festivalEvent.startDate).getDate() === selectedDay
 		);
 		const dayScreenings = screenings.filter(
 			(screening: Screening) => new Date(screening.datetime).getDate() === selectedDay
 		);
 
 		return [
-			...dayEvents.map((event: FestivalEvent) => ({
-				type: event,
-				venue: venues.find((venue: Venue) => venue.id === event.venue_id),
-				time: new Date(event.startDate)
+			...dayEvents.map((festivalEvent: FestivalEvent) => ({
+				type: festivalEvent,
+				festivalEvent,
+				venue: venues.find((venue: Venue) => venue.id === festivalEvent.venue_id),
+				time: new Date(festivalEvent.startDate)
 			})),
 			...dayScreenings.map((screening: Screening) => ({
 				type: screening,
@@ -111,23 +87,14 @@
 				{/each}
 			</ul>
 			{#if selectedDay !== null && eventsForDay.length > 0}
-				<h2>Eventi per il giorno {selectedDay}</h2>
+				<h2>{$t(`program.${selectedDay}`)}</h2>
 				<ul class="events-for-day__list">
 					{#each eventsForDay as event (event)}
-						<Card img="src/lib/images/hero_image.webp">
-							<div class="m-6">
-								<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-									{isEventDay(event.type) ? event.venue.address : event.film?.title}
-								</h5>
-								<p class="mb-3 leading-tight font-normal text-gray-700 dark:text-gray-400">
-									Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
-									chronological order.
-								</p>
-								<Button class="w-40">
-									Read more <ArrowRightOutline class="ms-2 h-6 w-6 text-white" />
-								</Button>
-							</div>
-						</Card>
+						{#if isFestivalEvent(event.type)}
+							<div>{event.type.speaker}</div>
+						{:else}
+							<ScreeningCard {locale} {event} {directors}></ScreeningCard>
+						{/if}
 					{/each}
 				</ul>
 			{/if}

@@ -2,6 +2,7 @@ export interface Film {
 	cast: string[]; // e.g., "Tom Hanks", "Robin Wright"
 	director_id: string; // e.g., "d01 => Robert Zemeckis"
 	duration: number;
+	countryOfOrigin: string; // e.g., "USA"
 	editing: string; // e.g., "Richard Francis-Bruce"
 	genres: Genre[];
 	id: string; // Unique identifier for the film
@@ -15,11 +16,12 @@ export interface Film {
 	production: string; // e.g., "Paramount Pictures", "Walt Disney Pictures"
 	screenings?: Screening[];
 	screenplay: string[]; // e.g., Chris Columbus, Steven Spielberg
-	// section: string; // e.g., "Concorso", "Fuori Concorso"
+	section: string; // e.g., "ic", "ooc"
 	sound: string; // e.g., "Randy Thom"
 	synopsis: string;
 	title: string;
 	tone: string; // e.g., color, black-and-white
+	version: string; // e.g., "if", "Omiu", "Omeu"
 	year: number;
 }
 
@@ -70,4 +72,11 @@ export interface Event {
 	venue_id: string; // Venue where the event will be held
 	startDate: string; // ISO date
 	endDate?: string; // ISO date
+}
+
+export interface EventsForDay {
+	type: FestivalEvent | Screening;
+	film?: Film; // optional, if you want to include film title
+	venue: Venue;
+	time: Date;
 }
