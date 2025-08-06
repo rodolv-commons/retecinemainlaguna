@@ -12,5 +12,11 @@
 	"if": "Italian Version",
 	"omiu": "OV with Italian Subtitles",
 	"omeu": "OV with English Subtitles",
-	"by": "by"
+	"by": "by",
+	"opening": "Opening Ceremony",
+	"closing": "Closing Ceremony",
+	"masterclass": "Masterclass",
+	"panel": "Panel Discussion",
+	"workshop": "Workshop",
+	"industry": "Industry Days"
 }

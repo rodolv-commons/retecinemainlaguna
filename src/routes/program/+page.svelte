@@ -7,6 +7,7 @@
 	import type { EventsForDay } from '$lib/types/Film';
 	import ScreeningCard from '$lib/components/ScreeningCard.svelte';
 	import { isFestivalEvent } from '$lib/types/typeGuards';
+	import FestivalEventCard from '$lib/components/FestivalEventCard.svelte';
 
 	// destructure festivalDays (and anything else)
 	export let data: PageData;
@@ -30,7 +31,7 @@
 		return [
 			...dayEvents.map((festivalEvent: FestivalEvent) => ({
 				type: festivalEvent,
-				festivalEvent,
+				festivalEvent: festivalEvent,
 				venue: venues.find((venue: Venue) => venue.id === festivalEvent.venue_id),
 				time: new Date(festivalEvent.startDate)
 			})),
@@ -87,11 +88,11 @@
 				{/each}
 			</ul>
 			{#if selectedDay !== null && eventsForDay.length > 0}
-				<h2>{$t(`program.${selectedDay}`)}</h2>
+				<h2 class="events-for-day__date">{$t(`program.${selectedDay}`)}</h2>
 				<ul class="events-for-day__list">
 					{#each eventsForDay as event (event)}
 						{#if isFestivalEvent(event.type)}
-							<div>{event.type.speaker}</div>
+							<FestivalEventCard {locale} {event}></FestivalEventCard>
 						{:else}
 							<ScreeningCard {locale} {event} {directors}></ScreeningCard>
 						{/if}

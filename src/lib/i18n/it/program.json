@@ -12,5 +12,11 @@
 	"if": "Versione Italiana",
 	"omiu": "VO con sottotitoli in Italiano",
 	"omeu": "VO con sottotitoli in Inglese",
-	"by": "di"
+	"by": "di",
+	"opening": "Cerimonia di Apertura",
+	"closing": "Cerimonia di Chiusura",
+	"masterclass": "Masterclass",
+	"panel": "Discussione Panel",
+	"workshop": "Workshop",
+	"industry": "Giornate dell'Industria"
 }

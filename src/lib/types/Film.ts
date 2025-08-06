@@ -77,6 +77,8 @@ export interface Event {
 export interface EventsForDay {
 	type: FestivalEvent | Screening;
 	film?: Film; // optional, if you want to include film title
+	festivalEvent?: FestivalEvent; // optional, if you want to include festival event details
+	screening?: Screening; // optional, if you want to include screening details
 	venue: Venue;
 	time: Date;
 }
