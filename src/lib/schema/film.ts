@@ -79,6 +79,7 @@ export const FilmSchema: z.ZodType<Film> = z.lazy(() =>
 		screenings: z.array(ScreeningSchema).optional(),
 		screenplay: z.string().transform((s) => s.split(',')),
 		section: z.string(), // e.g., "ic", "ooc
+		slug: z.string().transform((s) => s.trim().replace(/\s+/g, '-')),
 		sound: z.string(),
 		synopsis: z.string(),
 		title: z.string(),

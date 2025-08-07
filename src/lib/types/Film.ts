@@ -17,6 +17,7 @@ export interface Film {
 	screenings?: Screening[];
 	screenplay: string[]; // e.g., Chris Columbus, Steven Spielberg
 	section: string; // e.g., "ic", "ooc"
+	slug: string; // Abbreviation of the film
 	sound: string; // e.g., "Randy Thom"
 	synopsis: string;
 	title: string;

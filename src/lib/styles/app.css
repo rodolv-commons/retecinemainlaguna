@@ -4,7 +4,7 @@
 @import './colors.css';
 @import './size.css';
 @import '../../app.css';
-@import './festival.css';
+@import './program.css';
 
 :root {
 	--font-body: 'Mozilla Headline', sans-serif;

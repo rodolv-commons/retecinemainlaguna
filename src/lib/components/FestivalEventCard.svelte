@@ -20,9 +20,9 @@
 					{event.venue?.name || 'Unknown Venue'}
 				</p>
 			</div>
-			<p class="mb-3 leading-tight font-normal text-gray-700 uppercase dark:text-gray-400">
+			<div class="mb-3 leading-tight font-normal text-gray-700 uppercase dark:text-gray-400">
 				<Badge large color="red">{$t(`program.${event.festivalEvent?.category}`)}</Badge>
-			</p>
+			</div>
 
 			<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 				{event.festivalEvent?.title}
