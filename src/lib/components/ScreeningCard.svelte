@@ -7,7 +7,7 @@
 
 	let { locale, event, directors } = $props();
 
-	const imgPath = `src/lib/images/films/${event.film?.id}_card.jpg`;
+	const imgPath = `/images/films/${event.film?.id}_card.jpg`;
 </script>
 
 <div class="events-for-day__item">

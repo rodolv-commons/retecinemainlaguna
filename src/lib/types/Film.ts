@@ -3,8 +3,9 @@ export interface Film {
 	director_id: string; // e.g., "d01 => Robert Zemeckis"
 	duration: number;
 	countryOfOrigin: string; // e.g., "USA"
-	editing: string; // e.g., "Richard Francis-Bruce"
-	genres: Genre[];
+	editing: string[]; // e.g., "Richard Francis-Bruce"
+	tags_it: Tag[];
+	tags_en: Tag[];
 	id: string; // Unique identifier for the film
 	format: string; // e.g., "2D", "3D", "IMAX"
 	image: string;
@@ -12,14 +13,16 @@ export interface Film {
 	music: string; // e.g., "Alan Silvestri"
 	originalTitle: string;
 	originalVersion: boolean; // true if the film is in its original language/version
+	photography: string[];
 	producers: string[]; // e.g., "Wendy Finerman", "Steve Tisch"
 	production: string; // e.g., "Paramount Pictures", "Walt Disney Pictures"
 	screenings?: Screening[];
 	screenplay: string[]; // e.g., Chris Columbus, Steven Spielberg
 	section: string; // e.g., "ic", "ooc"
 	slug: string; // Abbreviation of the film
-	sound: string; // e.g., "Randy Thom"
-	synopsis: string;
+	sound: string[]; // e.g., "Randy Thom"
+	synopsis_it: string;
+	synopsis_en: string;
 	title: string;
 	tone: string; // e.g., color, black-and-white
 	version: string; // e.g., "if", "Omiu", "Omeu"
@@ -35,7 +38,7 @@ export interface Director {
 	filmography?: string[]; // Optional list of films directed by this director
 }
 
-export interface Genre {
+export interface Tag {
 	name: string;
 }
 

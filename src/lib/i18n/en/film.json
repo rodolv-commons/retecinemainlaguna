@@ -1,0 +1,12 @@
+{
+	"director": "DIRECTOR(S)",
+	"screenwriter": "SCREENWRITER",
+	"producer": "PRODUCERS",
+	"photography": "DIRECTOR(S) OF PHOTOGRAPHY",
+	"editing": "EDITING",
+	"sound": "SOUND",
+	"cast": "PRINCIPAL CAST",
+	"year": "YEAR",
+	"country": "COUNTRY",
+	"duration": "RUN TIME"
+}

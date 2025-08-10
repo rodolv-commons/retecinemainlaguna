@@ -60,8 +60,14 @@ export const FilmSchema: z.ZodType<Film> = z.lazy(() =>
 		director_id: z.string(),
 		duration: z.coerce.number().int(),
 		countryOfOrigin: z.string(),
-		editing: z.string(),
-		genres: z.string().transform((val) =>
+		editing: z.string().transform((s) => s.split(',')),
+		tags_en: z.string().transform((val) =>
+			val
+				.split(',')
+				.map((g) => g.trim())
+				.map((name) => GenreSchema.parse({ name }))
+		),
+		tags_it: z.string().transform((val) =>
 			val
 				.split(',')
 				.map((g) => g.trim())
@@ -74,14 +80,16 @@ export const FilmSchema: z.ZodType<Film> = z.lazy(() =>
 		music: z.string(),
 		originalTitle: z.string(),
 		originalVersion: z.coerce.boolean(),
+		photography: z.string().transform((s) => s.split(',')),
 		producers: z.string().transform((s) => s.split(',')),
 		production: z.string(),
 		screenings: z.array(ScreeningSchema).optional(),
 		screenplay: z.string().transform((s) => s.split(',')),
 		section: z.string(), // e.g., "ic", "ooc
 		slug: z.string().transform((s) => s.trim().replace(/\s+/g, '-')),
-		sound: z.string(),
-		synopsis: z.string(),
+		sound: z.string().transform((s) => s.split(',')),
+		synopsis_it: z.string(),
+		synopsis_en: z.string(),
 		title: z.string(),
 		tone: z.string(),
 		version: z.string(), // e.g., "if", "Omiu", "Omeu"

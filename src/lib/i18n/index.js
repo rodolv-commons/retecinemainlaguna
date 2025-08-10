@@ -33,6 +33,16 @@ const config = {
 			locale: 'it',
 			key: 'program',
 			loader: async () => (await import('./it/program.json')).default
+		},
+		{
+			locale: 'en',
+			key: 'film',
+			loader: async () => (await import('./en/film.json')).default
+		},
+		{
+			locale: 'it',
+			key: 'film',
+			loader: async () => (await import('./it/film.json')).default
 		}
 	]
 };

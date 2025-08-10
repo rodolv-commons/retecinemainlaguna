@@ -21,7 +21,7 @@ import {
 } from '$lib/schema/film';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = path.join(__dirname, '../data');
+const DATA_DIR = path.join(__dirname, '../../../static');
 
 export function parseCsvFile<T>(content: string, schema: ZodType<T>): T[] {
 	const records = parse(content, {

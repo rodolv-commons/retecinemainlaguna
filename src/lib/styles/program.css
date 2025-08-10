@@ -149,11 +149,11 @@ button.selected > .date-selector__item {
 	height: 500px;
 }
 
-img {
+.card-item > img {
 	transition: 0.8s ease all;
 	cursor: pointer;
 }
 
-img:hover {
+.card-item > img:hover {
 	transform: scale(1.1);
 }
