@@ -43,6 +43,16 @@ const config = {
 			locale: 'it',
 			key: 'film',
 			loader: async () => (await import('./it/film.json')).default
+		},
+		{
+			locale: 'en',
+			key: 'overview',
+			loader: async () => (await import('./en/overview.json')).default
+		},
+		{
+			locale: 'it',
+			key: 'overview',
+			loader: async () => (await import('./it/overview.json')).default
 		}
 	]
 };

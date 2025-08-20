@@ -1,6 +1,4 @@
 <script lang="ts">
-	import '../styles/footer.css';
-	import { Card, Badge } from 'flowbite-svelte';
 	import { t } from '$lib/i18n';
 	import { getCountryName } from '$lib/utils/utils';
 	import type { Director } from '$lib/types/Film';
@@ -8,50 +6,51 @@
 	let { locale, event, directors } = $props();
 
 	const imgPath = `/images/films/${event.film?.id}_card.jpg`;
+
+	const directorNames = event.film?.director_id
+		? directors
+				.filter((d: Director) => d.id === event.film?.director_id)
+				.map((d: Director) => d.name)
+				.join(', ')
+		: 'Unknown Director';
 </script>
 
-<div class="events-for-day__item">
-	<a href={`/program/films/${event.film?.id}-${event.film?.slug}`} class="block">
-		<Card class="card-item" img={imgPath}>
-			<div class="m-6">
-				<div class="mb-3 flex items-center justify-between">
-					<p class="text-gray-500 dark:text-gray-400">
-						{event.time.toLocaleTimeString([locale], {
-							hour: '2-digit',
-							minute: '2-digit'
-						})}
-					</p>
-					<p class="text-gray-500 dark:text-gray-400">
-						{event.venue?.name || 'Unknown Venue'}
-					</p>
-				</div>
-				<p class="mb-3 leading-tight font-normal text-gray-700 uppercase dark:text-gray-400">
-					{$t(`program.${event.film?.section}`)}
-				</p>
+<a
+	class="card"
+	href={`/program/films/${event.film?.id}-${event.film?.slug}`}
+	aria-label={event.film?.title || 'Film'}
+	style="--card-h: 28rem"
+>
+	<div class="card__media">
+		<img src={imgPath} alt={event.film?.title || 'Film image'} loading="lazy" />
+	</div>
 
-				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-					{event.film?.title}
-				</h5>
-				<div class="mb-3 leading-tight font-normal text-gray-700 dark:text-gray-400">
-					<Badge large color="yellow"
-						>{$t('program.by')}
-						{event.film?.director_id
-							? directors
-									.filter((d: Director) => d.id === event.film?.director_id)
-									.map((d: Director) => d.name)
-							: 'Unknown Director'}</Badge
-					>
-
-					<Badge large color="yellow"
-						>{event.film?.countryOfOrigin
-							? getCountryName(event.film?.countryOfOrigin, locale)
-							: 'TBA'}</Badge
-					>
-					<Badge large color="yellow">{event.film?.year}</Badge>
-					<Badge large color="yellow">{event.film?.duration}'</Badge>
-					<Badge large color="yellow">{$t(`program.${event.film?.version}`)}</Badge>
-				</div>
+	<div class="card__body">
+		<div class="card__top">
+			<div class="muted">
+				{event.time.toLocaleTimeString([locale], { hour: '2-digit', minute: '2-digit' })}
 			</div>
-		</Card>
-	</a>
-</div>
+			<div class="muted">{event.venue?.name || 'Unknown Venue'}</div>
+		</div>
+
+		<div class="section-label">{$t(`program.${event.film?.section}`)}</div>
+
+		<h3 class="card__title">{event.film?.title}</h3>
+
+		<div class="chips">
+			<span class="badge">
+				{$t('program.by')}
+				{directorNames}
+			</span>
+			<span class="badge">
+				{event.film?.countryOfOrigin ? getCountryName(event.film?.countryOfOrigin, locale) : 'TBA'}
+			</span>
+			<span class="badge">{event.film?.year}</span>
+			<span class="badge">{event.film?.duration}'</span>
+			<span class="badge">{$t(`program.${event.film?.version}`)}</span>
+		</div>
+	</div>
+</a>
+
+<style>
+</style>

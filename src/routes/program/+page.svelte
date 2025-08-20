@@ -1,6 +1,5 @@
 <script lang="ts">
-	import programPDF from '$lib/assets/program.pdf';
-	import waves from '$lib/images/motion_waves.mp4';
+	// import programPDF from '$lib/assets/program.pdf';
 	import { t, locale as localeStore } from '$lib/i18n';
 	import type { PageData } from './$types';
 	import type { FestivalEvent, Screening, Film, Venue } from '$lib/types/Film';
@@ -8,6 +7,10 @@
 	import ScreeningCard from '$lib/components/ScreeningCard.svelte';
 	import { isFestivalEvent } from '$lib/types/typeGuards';
 	import FestivalEventCard from '$lib/components/FestivalEventCard.svelte';
+	import { Button } from 'flowbite-svelte';
+	import { DownloadOutline } from 'flowbite-svelte-icons';
+
+	const festivalImagePath = 'src/lib/images/hero_image.webp';
 
 	// destructure festivalDays (and anything else)
 	export let data: PageData;
@@ -52,29 +55,41 @@
 </svelte:head>
 
 <section class="festival__wrapper">
-	<div class="top__wrapper">
-		<div class="top__title text-column">
-			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-			<h1>{@html $t('program.intro')}</h1>
+	<div class="festival-middle__wrapper">
+		<div class="hero-image-middle__wrapper">
+			<img
+				src={festivalImagePath}
+				alt="In Laguna Film Festival 2025"
+				class="hero-image-middle"
+				loading="lazy"
+			/>
 		</div>
-		<div class="top__animated">
-			<div>
-				<video class="background-video" autoplay muted loop playsinline>
-					<source src={waves} type="video/mp4" />
+		<div class="festival-middle__content">
+			<div class="content-title__wrapper">
+				<h2 class="content-title">Le nostre immagini camminano sull’acqua, le altre affondano.</h2>
+			</div>
 
-					Your browser does not support the video tag.
-				</video>
+			<div class="festival-date__wrapper">
+				<div class="date-content">
+					<time class="date-content__from" style="--line-nudge: -0.03em">9.12.</time>
+					<time class="date-content__to">15.12.2025</time>
+				</div>
+				<div class="festival-download__wrapper">
+					<Button size="xs">
+						<DownloadOutline class="h-6 w-6 shrink-0" />
+						Programma in PDF
+					</Button>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="festival__middle__wrapper">
-		<div class="download-box">
+
+		<!-- <div class="download-box">
 			<p class="download-text">Scarica il programma del festival in formato PDF</p>
 			<a href={programPDF} download class="download-button"> Scarica il PDF ⬇️ </a>
-		</div>
+		</div> -->
 	</div>
 
-	<div class="festival__bottom__wrapper">
+	<section class="festival__bottom__wrapper">
 		<div class="schedule__wrapper">
 			<ul class="date-selector__list">
 				{#each festivalDays as day (day)}
@@ -92,13 +107,13 @@
 				<ul class="events-for-day__list">
 					{#each eventsForDay as event (event)}
 						{#if isFestivalEvent(event.type)}
-							<FestivalEventCard {locale} {event}></FestivalEventCard>
+							<FestivalEventCard {locale} {event} />
 						{:else}
-							<ScreeningCard {locale} {event} {directors}></ScreeningCard>
+							<ScreeningCard {locale} {event} {directors} />
 						{/if}
 					{/each}
 				</ul>
 			{/if}
 		</div>
-	</div>
+	</section>
 </section>

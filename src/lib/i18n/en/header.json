@@ -18,13 +18,12 @@
 		}
 	},
 	"festival": {
-		"label": "Festival",
+		"label": "InLaguna Film Festival",
 		"entries": {
 			"overview": "Festival overview",
 			"program": "Current edition program",
 			"archive": "Past editions archive",
-			"guests": "Guests / Jury",
-			"partners": "Partners and sponsors"
+			"guests": "Guests / Jury"
 		}
 	},
 	"news": {

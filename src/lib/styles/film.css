@@ -1,91 +1,88 @@
-.film__wrapper-upper {
-	border-top: 1px solid black;
-	margin: 0 auto;
+/* ========== Base (mobile first) ========== */
+
+.top-border {
+	border-top: 1px solid #000;
+	height: 0; /* no box height, just the line */
+	width: 100%;
 	margin-top: calc(var(--header-height));
+}
+
+.bottom-border {
+	border-bottom: 1px solid #000;
+	height: 0; /* no box height, just the line */
+	width: 100%;
+}
+
+.film__wrapper-upper {
+	margin: 0 auto;
+	margin-top: calc(2 * var(--spacing-unit));
 	display: grid;
-	grid-template-columns: 60% 40%;
-	gap: 20px;
+	grid-template-columns: 1fr;
 	grid-template-areas:
-		'breadcrumb breadcrumb'
-		'image-hero film-details';
-	padding-bottom: calc(20 * var(--spacing-unit));
+		'breadcrumb'
+		'image-hero'
+		'film-details';
+	gap: 16px;
+	padding-bottom: calc(6 * var(--spacing-unit));
+	width: 100%;
 }
 
 .breadcrumb {
 	grid-area: breadcrumb;
-	width: 90%;
-	margin: 0 auto;
-}
-
-.hero-image__wrapper {
-	position: relative;
-	width: 90%;
-	padding-top: 44.25%; /* 9/16 */
-	overflow: hidden;
-}
-
-/* fill-and-cover */
-.hero-image {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-}
-
-.film-details__wrapper {
-	grid-area: film-details;
-	padding-top: calc(5 * var(--spacing-unit));
-	width: 80%;
-}
-
-.film-details__tags {
-	display: flex;
-	flex-wrap: wrap;
-	padding-top: 50px;
-}
-
-.film-details__tags > div {
-	margin-right: 10px;
-	border-radius: 30px;
-	margin-top: 10px;
+	padding-left: calc(1 * var(--spacing-unit));
 }
 
 .film-image__wrapper {
 	grid-area: image-hero;
 	display: flex;
-	margin: 0 auto;
-	padding-top: calc(5 * var(--spacing-unit));
+	justify-content: center;
+	width: 100%;
+	padding-top: calc(1 * var(--spacing-unit));
+	padding-left: calc(1 * var(--spacing-unit));
+	padding-right: calc(1 * var(--spacing-unit));
 }
 
 .film-image__hero {
 	/* border + radius */
 	border: 1px solid black;
-	border-radius: 41px;
+	border-radius: 8px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.film__wrapper-bottom {
-	border-top: 1px solid black;
+.film-details__wrapper {
+	grid-area: film-details;
+	padding-top: calc(2 * var(--spacing-unit));
+	padding-left: calc(2 * var(--spacing-unit));
+	padding-right: calc(2 * var(--spacing-unit));
+}
+
+.film-details__tags {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: calc(1 * var(--spacing-unit));
+}
+
+.film-details__tags > div {
+	margin-right: calc(1 * var(--spacing-unit));
+	border-radius: 30px;
+	margin-top: calc(1 * var(--spacing-unit));
 }
 
 .film-bottom__details {
 	display: flex;
-	width: 75%;
-	margin: 0 auto;
-	height: 100%;
+	flex-direction: column; /* stack on mobile */
 }
 
 .film-director__wrapper {
-	width: 45%;
-	padding-top: calc(8 * var(--spacing-unit));
-	border-right: 1px solid black;
-	padding-left: calc(8 * var(--spacing-unit));
+	padding-top: calc(2 * var(--spacing-unit));
+	border-right: none;
+	padding-left: calc(1 * var(--spacing-unit));
+	padding-right: calc(1 * var(--spacing-unit));
 }
 
 .film-director__section {
 	display: flex;
+	flex-direction: column; /* stack on mobile */
 }
 
 .film-director__title {
@@ -93,14 +90,21 @@
 	font-size: 24px;
 }
 
+.film-director-image__wrapper {
+	width: 377px;
+}
+
 .film-director__image {
 	border-radius: 10px;
 	padding-top: calc(2 * var(--spacing-unit));
+	height: 502px;
+	object-fit: cover !important;
+	width: 100%;
 }
 
 .film-director__bio-details {
-	padding-top: calc(2 * var(--spacing-unit));
-	padding-left: calc(2 * var(--spacing-unit));
+	padding-top: calc(1 * var(--spacing-unit));
+	padding-left: calc(1 * var(--spacing-unit));
 }
 
 .film-director__name {
@@ -110,16 +114,18 @@
 
 .film-director__biography {
 	padding-top: calc(1 * var(--spacing-unit));
-	padding-right: calc(2 * var(--spacing-unit));
+	padding-right: calc(4 * var(--spacing-unit));
 }
 
 .film-director__filmography {
+	padding-bottom: calc(4 * var(--spacing-unit));
 }
 
 .film-credits__wrapper {
-	width: 55%;
-	padding-left: calc(8 * var(--spacing-unit));
-	padding-top: calc(8 * var(--spacing-unit));
+	padding-left: calc(2 * var(--spacing-unit));
+	padding-top: calc(4 * var(--spacing-unit));
+	padding-right: calc(2 * var(--spacing-unit));
+	border-top: 1px solid black;
 }
 
 .film-credits__title {
@@ -135,19 +141,18 @@
 	display: flex;
 	list-style: none;
 	font-style: normal;
-	font-size: 18px;
+	font-size: 16px;
 	color: #000;
 	font-weight: 400;
 	padding-bottom: calc(1 * var(--spacing-unit));
 }
 
 .credit-item__title {
-	margin-right: 23px;
 	letter-spacing: -0.43px;
 	display: block;
-	max-width: 226px;
+	max-width: 200px;
 	width: 100%;
-	margin-right: 23px;
+	margin-right: calc(1 * var(--spacing-unit));
 	flex-shrink: 0;
 }
 
@@ -164,4 +169,120 @@
 	word-break: break-all;
 	font-size: 16px;
 	font-weight: lighter;
+}
+
+@media (min-width: 552px) {
+	.film-details__wrapper {
+		width: 75%;
+		margin: 0 auto;
+	}
+
+	.film-image__wrapper {
+		max-width: 75%;
+		margin: 0 auto;
+	}
+
+	.film-image__hero {
+		border-radius: 32px;
+	}
+
+	.breadcrumb {
+		margin-left: calc(5 * var(--spacing-unit));
+	}
+
+	.film-director-image__wrapper {
+		max-width: 377px;
+	}
+
+	.film-director__wrapper,
+	.film-credits__wrapper {
+		padding-left: calc(8 * var(--spacing-unit));
+	}
+
+	.film-director__bio-details {
+		padding-left: 0;
+	}
+
+	.film-director-image__wrapper {
+		margin: 0;
+	}
+}
+
+/* ========== ≥768px (tablets) ========== */
+@media (min-width: 768px) {
+	.film-bottom__details {
+		flex-direction: row; /* side by side */
+	}
+
+	.film-director__wrapper {
+		width: 45%;
+		border-right: 1px solid black;
+		padding-left: calc(4 * var(--spacing-unit));
+	}
+	.film-credits__wrapper {
+		width: 55%;
+		padding-left: calc(4 * var(--spacing-unit));
+		border-top: none;
+		padding-top: calc(2 * var(--spacing-unit));
+	}
+
+	.film-director-image__wrapper {
+	}
+
+	.film-director__image {
+		height: 100%;
+	}
+}
+
+@media (min-width: 992px) {
+	.film__wrapper-upper {
+		grid-template-columns: 60% 40%;
+		grid-template-areas:
+			'breadcrumb breadcrumb'
+			'image-hero film-details';
+		gap: 0;
+		padding: calc(1 * var(--spacing-unit));
+		padding-bottom: calc(6 * var(--spacing-unit));
+	}
+
+	.film-image__wrapper {
+		display: block;
+		max-width: 90%;
+	}
+
+	.film-details__wrapper {
+		width: 85%;
+		padding: 0;
+	}
+}
+
+@media (min-width: 1368px) {
+	.film__wrapper-upper,
+	.film__wrapper-bottom {
+		max-width: 1368px;
+	}
+
+	.film__wrapper-bottom {
+		margin: 0 auto;
+	}
+
+	.film__wrapper-upper {
+		padding-bottom: calc(6 * var(--spacing-unit));
+	}
+
+	.film-director__image {
+		height: 297px;
+	}
+
+	.film-director-image__wrapper {
+		min-width: 223px;
+	}
+
+	.film-director__section {
+		flex-direction: row;
+	}
+
+	.film-director__bio-details {
+		padding-left: calc(4 * var(--spacing-unit));
+	}
 }

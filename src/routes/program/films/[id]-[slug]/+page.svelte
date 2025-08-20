@@ -24,6 +24,7 @@
 </script>
 
 {#if film}
+	<div class="top-border"></div>
 	<section class="film__wrapper-upper">
 		<div class="breadcrumb">
 			<Breadcrumbs />
@@ -46,33 +47,26 @@
 			</div>
 		</div>
 		<div class="film-image__wrapper">
-			<picture>
-				<img
-					class="film-image__hero"
-					alt={film.title}
-					src={hero2ImgPath}
-					loading="lazy"
-					decoding="async"
-					width="710"
-					height="399"
-				/>
-			</picture>
+			<img
+				class="film-image__hero"
+				alt={film.title}
+				src={hero2ImgPath}
+				loading="lazy"
+				decoding="async"
+				width="710"
+				height="399"
+			/>
 		</div>
 	</section>
+	<div class="bottom-border"></div>
 	<section class="film__wrapper-bottom">
 		<div class="film-bottom__details">
 			<div class="film-director__wrapper">
 				<div class="film-director__title">Meet the Artist</div>
 				<div class="film-director__section">
-					<img
-						class="film-director__image"
-						alt="Directors"
-						src={directotImgPath}
-						loading="lazy"
-						decoding="async"
-						width="223"
-						height="297"
-					/>
+					<div class="film-director-image__wrapper">
+						<img class="film-director__image" alt="Directors" src={directotImgPath} />
+					</div>
 					<div class="film-director__bio-details">
 						<div class="film-director__name">{director.name}</div>
 						<div class="film-director__biography">{director.biography}</div>
@@ -159,6 +153,7 @@
 			</div>
 		</div>
 	</section>
+	<div class="bottom-border"></div>
 {:else}
 	<p>Film not found.</p>
 {/if}
