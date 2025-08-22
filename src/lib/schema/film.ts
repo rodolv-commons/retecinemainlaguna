@@ -47,8 +47,10 @@ export const VenueSchema: z.ZodType<Venue> = z.lazy(() =>
 		address: z.string(),
 		city: z.string(),
 		id: z.string(),
-		mapLink: z.url().optional(),
 		name: z.string(),
+		lat: z.string().optional(),
+		lon: z.string().optional(),
+		notes: z.string().optional(),
 		screenings: z.array(ScreeningSchema).optional()
 	})
 );

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "v01",
+    "name": "Multisala Rossini",
+    "lon": 12.3338572,
+    "lat": 45.4337096
+  },
+  {
+    "id": "v02",
+    "name": "Teatrino di Palazzo Grassi",
+    "lon": 12.3279107,
+    "lat": 45.433439
+  },
+  {
+    "id": "v03",
+    "name": "Consolato di Svizzera",
+    "lon": 12.3277549,
+    "lat": 45.4295471
+  },
+  {
+    "id": "v04",
+    "name": "Casa del Cinema (Sala Pasinetti)",
+    "lon": 12.3300314,
+    "lat": 45.4408715
+  },
+  {
+    "id": "v05",
+    "name": "PANORAMA",
+    "lon": 12.3384561,
+    "lat": 45.4359216
+  },
+  {
+    "id": "v06",
+    "name": "COMBO",
+    "lon": 12.3387658,
+    "lat": 45.4431351
+  },
+  {
+    "id": "v07",
+    "name": "Fumetteria Super Zazà",
+    "lon": 12.320465,
+    "lat": 45.4372863
+  },
+  {
+    "id": "v08",
+    "name": "Cinema Giorgione",
+    "lon": 12.3299483,
+    "lat": 45.4375108
+  }
+]

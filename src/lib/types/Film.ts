@@ -46,8 +46,10 @@ export interface Venue {
 	address: string;
 	city: string;
 	id: string; // Unique identifier for the venue
-	mapLink?: string;
 	name: string;
+	lat?: string;
+	lon?: string;
+	notes?: string;
 	screenings?: Screening[];
 }
 
