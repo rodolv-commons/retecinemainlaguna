@@ -6,6 +6,11 @@ export const GenreSchema = z.object({
 	name: z.string()
 });
 
+export const optionalUrl = z.preprocess(
+	(v) => (typeof v === 'string' && v.trim() === '' ? undefined : v),
+	z.string().url().optional()
+);
+
 export const DirectorSchema: z.ZodType<Director> = z.object({
 	name: z.string(),
 	id: z.string(),
@@ -44,14 +49,19 @@ export const FestivalEventSchema: z.ZodType<FestivalEvent> = z.lazy(() =>
 // VENUE
 export const VenueSchema: z.ZodType<Venue> = z.lazy(() =>
 	z.object({
-		address: z.string(),
-		city: z.string(),
 		id: z.string(),
 		name: z.string(),
+		street: z.string(),
+		civic: z.string(),
+		zip: z.string(),
+		city: z.string(),
+		description: z.string().optional(),
+		website: optionalUrl,
+		instagram: optionalUrl,
+		facebook: optionalUrl,
+		food: z.string().optional(),
 		lat: z.string().optional(),
-		lon: z.string().optional(),
-		notes: z.string().optional(),
-		screenings: z.array(ScreeningSchema).optional()
+		lon: z.string().optional()
 	})
 );
 

@@ -67,5 +67,8 @@
 		"vite": "^7.0.4",
 		"vitest": "^3.2.3",
 		"zod": "^4.0.14"
+	},
+	"dependencies": {
+		"embla-carousel-svelte": "^8.6.0"
 	}
 }

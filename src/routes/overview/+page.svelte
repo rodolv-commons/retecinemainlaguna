@@ -1,53 +1,54 @@
-<script>
+<script lang="ts">
 	import { t } from '$lib/i18n';
 	import waves from '$lib/images/motion_waves.mp4';
 	import { MapLibre } from 'svelte-maplibre';
+	import type { LngLatLike, LngLatBoundsLike } from 'svelte-maplibre';
+	import type { Map as MapLibreMap } from 'maplibre-gl';
+	import type { PageData } from './$types';
+	import VenuesList from '$lib/components/VenuesList.svelte';
+	import BackToMapButton from '$lib/components/BackToMapButton.svelte';
 
 	// const venuesLogoPinPath = '/images/map-venice-pin.png';
 
-	/* const LIDO_BOUNDS: [[number, number], [number, number]] = [
+	export let data: PageData;
+	const { venues } = data;
+
+	console.log(venues);
+
+	const LIDO_BOUNDS: LngLatBoundsLike = [
 		[12.3, 45.42],
 		[12.37, 45.45]
-	]; */
-	// const CENTER: [number, number] = [12.335, 45.435];
+	];
+	const CENTER: LngLatLike = [12.335, 45.435];
 
-	/* const LIDO_BOUNDS = [
-		[12.3, 45.42],
-		[12.37, 45.45]
-	]; */
-	// const CENTER = [12.335, 45.435];
-
-	/** @type {import('maplibre-gl').Map} */
-	let map;
+	let map: MapLibreMap;
 	let booted = false;
 
 	$: if (map && !booted) {
 		booted = true;
 
 		// do your initial setup once
-		map.fitBounds(
-			[
-				[12.3, 45.42],
-				[12.37, 45.45]
-			],
-			{ padding: 20, duration: 0 }
-		);
-		map.setMaxBounds([
-			[12.3, 45.42],
-			[12.37, 45.45]
-		]);
+		map.fitBounds(LIDO_BOUNDS, { padding: 20, duration: 0 });
+		map.setMaxBounds(LIDO_BOUNDS);
 		map.setMinZoom(11);
 		map.setMaxZoom(18);
 
 		// if you need to add layers/sources after the style loads:
-		map.on('load', () => {
+		map.on('load', async () => {
+			const image = await map.loadImage(
+				'https://maplibre.org/maplibre-gl-js/docs/assets/custom_marker.png'
+			);
+			map.addImage('custom-marker', image.data);
 			// e.g. add your GeoJSON points layer here
 			map.addSource('venues', { type: 'geojson', data: '/geo/venues.geojson' });
 			map.addLayer({
 				id: 'venues-circle',
-				type: 'circle',
+				type: 'symbol', // symbol" | "raster" | "fill" | "line" | "circle" | "heatmap" | "fill-extrusion" | "hillshade" | "color-relief" | "background" | "custom"
 				source: 'venues',
-				paint: { 'circle-radius': 8, 'circle-opacity': 0.65 }
+				//paint: { 'circle-radius': 6, 'circle-opacity': 0.45 } // this is for circle type
+				layout: {
+					'icon-image': 'custom-marker'
+				}
 			});
 		});
 
@@ -92,25 +93,25 @@
 		<!-- <div class="venues__logo">
 			<img src={venuesLogoPinPath} alt="Logo Venice Pin Map" loading="lazy" />
 		</div> -->
-		<MapLibre
-			center={[12.335, 45.435]}
-			zoom={11}
-			class="map"
-			maxBounds={[
-				[12.3, 45.42],
-				[12.37, 45.45]
-			]}
-			standardControls
-			style="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
-			bind:map
-		/>
+		<div id="map" class="venues-map__wrapper">
+			<MapLibre
+				center={CENTER}
+				zoom={11}
+				class="venues-map"
+				maxBounds={LIDO_BOUNDS}
+				style="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
+				bind:map
+			/>
+		</div>
+
+		<VenuesList {venues} />
+
+		<BackToMapButton targetId="map" offset={72} label="Torna alla mappa" />
 	</div>
 </section>
 
 <style>
-	:global(.map) {
-		width: 100%;
-		height: 400px;
-		border-radius: 12px;
+	:global(.venues-map) {
+		height: 300px;
 	}
 </style>

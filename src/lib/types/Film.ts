@@ -41,16 +41,20 @@ export interface Director {
 export interface Tag {
 	name: string;
 }
-
 export interface Venue {
-	address: string;
-	city: string;
 	id: string; // Unique identifier for the venue
 	name: string;
+	street: string;
+	civic: string;
+	zip: string;
+	city: string;
+	description?: string;
+	website?: string;
+	instagram?: string;
+	facebook?: string;
+	food?: string;
 	lat?: string;
 	lon?: string;
-	notes?: string;
-	screenings?: Screening[];
 }
 
 export interface Screening {
