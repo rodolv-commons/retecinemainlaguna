@@ -1,11 +1,24 @@
 <script lang="ts">
 	import { MapPinOutline, FacebookSolid, InstagramSolid } from 'flowbite-svelte-icons';
 	import type { Venue } from '$lib/types/Film';
-	import { shuffled } from '$lib/utils/utils';
+	// import { shuffled } from '$lib/utils/utils';
 
-	let { venues } = $props();
+	let { venues, onFocusOnMap } = $props<{
+		venues: Venue[];
+		onFocusOnMap?: (payload: { id?: string; lat: number; lon: number; name?: string }) => void;
+	}>();
 
-	const venuesShuffled = shuffled<Venue>(venues);
+	function focus(venue: Venue) {
+		if (!venue.lat || !venue.lon) return;
+		onFocusOnMap?.({
+			id: venue.id,
+			lat: Number(venue.lat),
+			lon: Number(venue.lon),
+			name: venue.name
+		});
+	}
+
+	// const venuesShuffled = shuffled<Venue>(venues);
 </script>
 
 <!-- <div class="venues-nav__wrapper">
@@ -41,7 +54,7 @@
 	</div>
 </div> -->
 <ul class="venues-list__wrapper">
-	{#each venuesShuffled as venue (venue)}
+	{#each venues as venue (venue)}
 		<li class="venue-item__wrapper">
 			<div class="venues-list-left__wrapper">
 				<div class="venue-name">{venue.name}</div>
@@ -95,9 +108,15 @@
 				</div>
 			</div>
 			<div class="venues-list-right__wrapper">
-				<div class="venues-actions">
+				<button
+					class="venues-pin-button"
+					onclick={() => focus(venue)}
+					aria-label={`Centra ${venue.name} sulla mappa`}
+					disabled={!venue.lat || !venue.lon}
+					title={`Centra ${venue.name} sulla mappa`}
+				>
 					<MapPinOutline class="h-10 w-10 shrink-0" />
-				</div>
+				</button>
 			</div>
 		</li>
 	{/each}

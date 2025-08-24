@@ -4,25 +4,109 @@
 	import { MapLibre } from 'svelte-maplibre';
 	import type { LngLatLike, LngLatBoundsLike } from 'svelte-maplibre';
 	import type { Map as MapLibreMap } from 'maplibre-gl';
+	import maplibregl from 'maplibre-gl';
 	import type { PageData } from './$types';
 	import VenuesList from '$lib/components/VenuesList.svelte';
 	import BackToMapButton from '$lib/components/BackToMapButton.svelte';
 
-	// const venuesLogoPinPath = '/images/map-venice-pin.png';
-
 	export let data: PageData;
+
 	const { venues } = data;
-
-	console.log(venues);
-
 	const LIDO_BOUNDS: LngLatBoundsLike = [
 		[12.3, 45.42],
 		[12.37, 45.45]
 	];
 	const CENTER: LngLatLike = [12.335, 45.435];
+	const HEADER_OFFSET = 72;
 
 	let map: MapLibreMap;
 	let booted = false;
+	let popup: maplibregl.Popup | null = null;
+
+	function mapScrollTop(): number {
+		const el = document.getElementById('map');
+		if (!el) return (window as Window)?.scrollY ?? 0;
+		return window.scrollY + el.getBoundingClientRect().top - HEADER_OFFSET;
+	}
+
+	function smoothScrollTo(top: number): Promise<void> {
+		if (typeof window === 'undefined') return Promise.resolve();
+
+		const w = window as unknown as Window & typeof globalThis;
+
+		// se siamo già praticamente lì, esci subito
+		if (Math.abs(w.scrollY - top) <= 1) return Promise.resolve();
+
+		return new Promise<void>((resolve) => {
+			const supportsScrollEnd = 'onscrollend' in (w as Window);
+
+			if (supportsScrollEnd) {
+				const onEnd = () => resolve();
+				w.addEventListener('scrollend', onEnd, { once: true } as AddEventListenerOptions);
+				w.scrollTo({ top, behavior: 'smooth' });
+				return;
+			}
+
+			// fallback: attendi stabilizzazione dello scroll per alcuni frame
+			const start = performance.now();
+			const maxMs = 2000;
+			const tol = 2;
+			let lastY = w.scrollY;
+			let stableFrames = 0;
+
+			const tick = () => {
+				const y = w.scrollY;
+				const dist = Math.abs(y - top);
+				const elapsed = performance.now() - start;
+
+				const delta = Math.abs(y - lastY);
+				if (delta < 0.2) stableFrames++;
+				else stableFrames = 0;
+
+				if (dist <= tol || stableFrames >= 5 || elapsed > maxMs) {
+					resolve();
+					return;
+				}
+				lastY = y;
+				requestAnimationFrame(tick);
+			};
+
+			w.scrollTo({ top, behavior: 'smooth' });
+			requestAnimationFrame(tick);
+		});
+	}
+
+	function focusOnMap(d: { id?: string; lat: number; lon: number; name?: string }) {
+		if (!map) return;
+		const center: [number, number] = [Number(d.lon), Number(d.lat)];
+
+		// centra/zooma
+		map.easeTo({ center, zoom: 5, duration: 1000 });
+
+		// popup riutilizzabile
+		if (popup) popup.remove();
+		popup = new maplibregl.Popup({ offset: 12 })
+			.setLngLat(center)
+			.setHTML(`<strong>${d.name ?? ''}</strong>`)
+			.addTo(map);
+	}
+
+	// Handler dal figlio
+	async function handleFocusFromList(d: { id?: string; lat: number; lon: number; name?: string }) {
+		const w = window as unknown as Window & typeof globalThis;
+		const top = mapScrollTop();
+
+		await smoothScrollTo(top);
+
+		// 🔧 SNAP finale: se si è fermato leggermente prima, allinea esattamente
+		const snapTop = mapScrollTop();
+		if (Math.abs(w.scrollY - snapTop) > 1) {
+			w.scrollTo({ top: snapTop, behavior: 'auto' });
+		}
+
+		// ora centra la mappa
+		focusOnMap(d);
+	}
 
 	$: if (map && !booted) {
 		booted = true;
@@ -90,9 +174,6 @@
 			justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
 			ipsum dolor sit amet.
 		</div>
-		<!-- <div class="venues__logo">
-			<img src={venuesLogoPinPath} alt="Logo Venice Pin Map" loading="lazy" />
-		</div> -->
 		<div id="map" class="venues-map__wrapper">
 			<MapLibre
 				center={CENTER}
@@ -104,14 +185,11 @@
 			/>
 		</div>
 
-		<VenuesList {venues} />
+		<VenuesList {venues} onFocusOnMap={handleFocusFromList} />
 
 		<BackToMapButton targetId="map" offset={72} label="Torna alla mappa" />
 	</div>
 </section>
 
 <style>
-	:global(.venues-map) {
-		height: 300px;
-	}
 </style>

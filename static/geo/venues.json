@@ -2,49 +2,131 @@
   {
     "id": "v01",
     "name": "Multisala Rossini",
+    "street": "Campo S. Fantin",
+    "civic": "1965",
+    "zip": "30124",
+    "city": "Venezia",
     "lon": 12.3338572,
     "lat": 45.4337096
   },
   {
     "id": "v02",
     "name": "Teatrino di Palazzo Grassi",
+    "street": "Campo San Samuele",
+    "civic": "3231",
+    "zip": "30124",
+    "city": "Venezia",
     "lon": 12.3279107,
     "lat": 45.433439
   },
   {
     "id": "v03",
     "name": "Consolato di Svizzera",
+    "street": "Campo Sant'Agnese",
+    "civic": "810",
+    "zip": "30123",
+    "city": "Venezia",
     "lon": 12.3277549,
     "lat": 45.4295471
   },
   {
     "id": "v04",
     "name": "Casa del Cinema (Sala Pasinetti)",
+    "street": "Salizada San Stae",
+    "civic": "1990",
+    "zip": "30135",
+    "city": "Venezia",
     "lon": 12.3300314,
     "lat": 45.4408715
   },
   {
     "id": "v05",
     "name": "PANORAMA",
+    "street": "Campiello S. Zulian",
+    "civic": "602A",
+    "zip": "30124",
+    "city": "Venezia",
     "lon": 12.3384561,
     "lat": 45.4359216
   },
   {
     "id": "v06",
     "name": "COMBO",
+    "street": "Campo dei Gesuiti",
+    "civic": "4878",
+    "zip": "30121",
+    "city": "Venezia",
     "lon": 12.3387658,
     "lat": 45.4431351
   },
   {
     "id": "v07",
     "name": "Fumetteria Super Zazà",
+    "street": "Santa Croce",
+    "civic": "270",
+    "zip": "30121",
+    "city": "Venezia",
     "lon": 12.320465,
     "lat": 45.4372863
   },
   {
     "id": "v08",
     "name": "Cinema Giorgione",
+    "street": "Cannaregio",
+    "civic": "4612",
+    "zip": "30121",
+    "city": "Venezia",
     "lon": 12.3299483,
     "lat": 45.4375108
+  },
+  {
+    "id": "v09",
+    "name": "Estro - Vino e Cucina",
+    "street": "Calle Crosera (S. Pantalon)",
+    "civic": "3778",
+    "zip": "30123",
+    "city": "Venezia",
+    "lon": 12.325107,
+    "lat": 45.436052
+  },
+  {
+    "id": "v10",
+    "name": "Osteria Al Squero",
+    "street": "Fondamenta Nani",
+    "civic": "943/944",
+    "zip": "30123",
+    "city": "Venezia",
+    "lon": 12.32616,
+    "lat": 45.4301
+  },
+  {
+    "id": "v11",
+    "name": "Al Timon",
+    "street": "Fondamenta degli Ormesini",
+    "civic": "2754",
+    "zip": "30121",
+    "city": "Venezia",
+    "lon": 12.3284787,
+    "lat": 45.4455597
+  },
+  {
+    "id": "v12",
+    "name": "Basegone (Basegò San Tomà)",
+    "street": "Campo San Tomà",
+    "civic": "2863",
+    "zip": "30125",
+    "city": "Venezia",
+    "lon": 12.32715,
+    "lat": 45.43605
+  },
+  {
+    "id": "v13",
+    "name": "Nevodi",
+    "street": "Via Giuseppe Garibaldi",
+    "civic": "1533",
+    "zip": "30122",
+    "city": "Venezia",
+    "lon": 12.35308,
+    "lat": 45.43215
   }
 ]
