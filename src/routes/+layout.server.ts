@@ -15,6 +15,7 @@ import directorsCsv from '$lib/data/directors.csv?raw';
 import screeningsCsv from '$lib/data/screenings.csv?raw';
 import venuesCsv from '$lib/data/venues.csv?raw';
 import festivalEventsCsv from '$lib/data/festival-events.csv?raw';
+import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ url, cookies, request }) => {
 	const { pathname } = url;
