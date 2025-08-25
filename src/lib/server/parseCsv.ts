@@ -3,7 +3,6 @@ import { readFile } from 'fs/promises';
 import { parse } from 'csv-parse/sync';
 import type { ZodType } from 'zod';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import {
 	type Film,
 	type Director,
@@ -20,8 +19,7 @@ import {
 	FestivalEventSchema
 } from '$lib/schema/film';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = path.join(__dirname, '../../../static');
+const DATA_DIR = path.resolve(process.cwd(), 'static');
 
 export function parseCsvFile<T>(content: string, schema: ZodType<T>): T[] {
 	const records = parse(content, {

@@ -10,7 +10,7 @@
 	import { Button } from 'flowbite-svelte';
 	import { DownloadOutline } from 'flowbite-svelte-icons';
 
-	const festivalImagePath = 'src/lib/images/hero_image.webp';
+	const festivalImagePath = '/images/hero_image.webp';
 
 	// destructure festivalDays (and anything else)
 	export let data: PageData;

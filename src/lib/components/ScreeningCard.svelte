@@ -17,7 +17,7 @@
 
 <a
 	class="card"
-	href={`/program/films/${event.film?.id}-${event.film?.slug}`}
+	href={`/program/${event.film?.id}-${event.film?.slug}`}
 	aria-label={event.film?.title || 'Film'}
 	style="--card-h: 28rem"
 >
