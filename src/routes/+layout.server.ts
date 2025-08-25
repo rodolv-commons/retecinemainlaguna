@@ -1,59 +1,46 @@
 import { locales, loadTranslations, translations, defaultLocale } from '$lib/i18n';
-import {
-	loadFilms,
-	loadDirectors,
-	loadScreenings,
-	loadVenues,
-	loadFestivalEvents
-} from '$lib/server/parseCsv';
+import { parseCsvFile } from '$lib/server/parseCsv';
 
-/** @type {import('@sveltejs/kit').ServerLoad} */
-export const load = async ({ url, cookies, request }) => {
+import {
+	FilmSchema,
+	DirectorSchema,
+	ScreeningSchema,
+	VenueSchema,
+	FestivalEventSchema
+} from '$lib/schema/film';
+
+// raw CSV content gets bundled at build time
+import filmsCsv from '$lib/data/films.csv?raw';
+import directorsCsv from '$lib/data/directors.csv?raw';
+import screeningsCsv from '$lib/data/screenings.csv?raw';
+import venuesCsv from '$lib/data/venues.csv?raw';
+import festivalEventsCsv from '$lib/data/festival-events.csv?raw';
+
+export const load: LayoutServerLoad = async ({ url, cookies, request }) => {
 	const { pathname } = url;
 
-	// Try to get the locale from cookie
+	// locale detection (as you had)
 	let locale = (cookies.get('lang') || '').toLowerCase();
-
-	// Get user preferred locale
 	if (!locale) {
-		// If no cookie is set, try to determine the locale from the 'Accept-Language' header
-		const acceptLanguageHeader = request.headers.get('accept-language') || '';
-		// Attempt to match the language code with optional region code
-		let match = acceptLanguageHeader.match(/^[a-z]+(?=[-_])/i);
-
-		// If no match is found, try to match just the language code
-		if (!match) {
-			match = acceptLanguageHeader.match(/^[a-z]+/i);
-		}
-
-		// If a match is found, use it as the locale, otherwise fall back to the default locale
-		locale = match ? match[0].toLowerCase() : defaultLocale;
+		const h = request.headers.get('accept-language') || '';
+		const m = h.match(/^[a-z]+(?=[-_])/i) || h.match(/^[a-z]+/i);
+		locale = m ? m[0].toLowerCase() : defaultLocale;
 	}
+	const supported = locales.get().map((l) => l.toLowerCase());
+	if (!supported.includes(locale)) locale = defaultLocale;
+	locale = defaultLocale; // your forced default
+	await loadTranslations(locale, pathname);
 
-	// Get defined locales
-	const supportedLocales = locales.get().map((l) => l.toLowerCase());
-
-	// Use default locale if current locale is not supported
-	if (!supportedLocales.includes(locale)) {
-		locale = defaultLocale;
-	}
-
-	locale = defaultLocale; // Force to italian as default
-
-	await loadTranslations(locale, pathname); // keep this just before the `return`
-
-	// Load festival data once at root layout
-	const [films, directors, screenings, venues, festivalEvents] = await Promise.all([
-		loadFilms(),
-		loadDirectors(),
-		loadScreenings(),
-		loadVenues(),
-		loadFestivalEvents()
-	]);
+	// parse bundled CSVs
+	const films = parseCsvFile(filmsCsv, FilmSchema);
+	const directors = parseCsvFile(directorsCsv, DirectorSchema);
+	const screenings = parseCsvFile(screeningsCsv, ScreeningSchema);
+	const venues = parseCsvFile(venuesCsv, VenueSchema);
+	const festivalEvents = parseCsvFile(festivalEventsCsv, FestivalEventSchema);
 
 	return {
 		i18n: { locale, route: pathname },
-		translations: translations.get(), // `translations` on server contain all translations loaded by different clients
+		translations: translations.get(),
 		films,
 		directors,
 		screenings,
