@@ -7,6 +7,7 @@
 @import './program.css';
 @import './overview.css';
 @import './film.css';
+@import './footer.css';
 
 :root {
 	--font-body: 'Mozilla Headline', sans-serif;
@@ -48,7 +49,6 @@ p {
 }
 
 a {
-	color: var(--color-theme-1);
 	text-decoration: none;
 }
 

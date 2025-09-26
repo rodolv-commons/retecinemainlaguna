@@ -38,3 +38,5 @@ export function isFestivalEvent(obj: unknown): obj is FestivalEvent {
 		(o.endDate === undefined || isISODate(o.endDate))
 	);
 }
+
+export type Logo = { src: string; alt: string };

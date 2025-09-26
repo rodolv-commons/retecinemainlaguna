@@ -1,0 +1,1134 @@
+
+[
+    {
+        "uri": "https://officialuri.com/1234_basic",
+        "type": [
+            "http://www.w3.org/2004/02/skos/core#Concept"
+        ],
+        "@context": "https://gbv.github.io/jskos/context.json",
+        "inScheme": [
+            {
+                "uri": "http://uri.gbv.de/terminology/cron_schedule_expression/",
+                "prefLabel": {
+                    "de": "Cron-Zeitplanausdruck",
+                    "en": "Cron schedule expression"
+                },
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+                ],
+                "notation": [
+                    "cron_schedule_expression"
+                ],
+                "license": [
+                    {
+                        "uri": "https://creativecommons.org/publicdomain/mark/1.0/",
+                        "notation": [],
+                        "prefLabel": {
+                            "de": "Public Domain Mark 1.0",
+                            "en": "Public Domain Mark 1.0"
+                        }
+                    }
+                ]
+            }
+        ],
+        "created": "2024-09-18",
+        "issued": "2024-09-18",
+        "modified": "2025-04-24",
+        "publisher": [
+            {
+                "prefLabel": {
+                    "de": "Verbundzentrale des GBV (VZG)"
+                }
+            }
+        ],
+        "mappings": [
+            {
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#broadMatch"
+                ],
+                "from": {
+                    "memberSet": [
+                        {
+                            "uri": "https://officialuri.com/1234_basic"
+                        }
+                    ]
+                },
+                "to": {
+                    "memberSet": [
+                        {
+                            "uri": "https://adequat.eu/de/aktuell/tips-tricks-deutsch/rankhilfe-wein-rankgitter-holz/"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#exactMatch"
+                ],
+                "from": {
+                    "memberSet": [
+                        {
+                            "uri": "https://officialuri.com/1234_basic"
+                        }
+                    ]
+                },
+                "to": {
+                    "memberSet": [
+                        {
+                            "uri": "https://d-nb.info/gnd/6049345-8"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#exactMatch"
+                ],
+                "from": {
+                    "memberSet": [
+                        {
+                            "uri": "https://officialuri.com/1234_basic"
+                        }
+                    ]
+                },
+                "to": {
+                    "memberSet": [
+                        {
+                            "uri": "http://vocab.getty.edu/aat/300209301"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#exactMatch"
+                ],
+                "from": {
+                    "memberSet": [
+                        {
+                            "uri": "https://officialuri.com/1234_basic"
+                        }
+                    ]
+                },
+                "to": {
+                    "memberSet": [
+                        {
+                            "uri": "http://geonames.org/5494129"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#exactMatch"
+                ],
+                "from": {
+                    "memberSet": [
+                        {
+                            "uri": "https://officialuri.com/1234_basic"
+                        }
+                    ]
+                },
+                "to": {
+                    "memberSet": [
+                        {
+                            "uri": "http://uri.gbv.de/terminology/gn250/DEBKGGND000004FR"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#exactMatch"
+                ],
+                "from": {
+                    "memberSet": [
+                        {
+                            "uri": "https://officialuri.com/1234_basic"
+                        }
+                    ]
+                },
+                "to": {
+                    "memberSet": [
+                        {
+                            "uri": "http://uri.gbv.de/terminology/test/b6d7100b-726a-4b06-bc0e-6e3faca62e44"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#narrowMatch"
+                ],
+                "from": {
+                    "memberSet": [
+                        {
+                            "uri": "https://officialuri.com/1234_basic",
+                            "type": [
+                                "http://www.w3.org/2004/02/skos/core#Concept"
+                            ],
+                            "prefLabel": {
+                                "de": "Testperson f\u00fcr RDF"
+                            },
+                            "notation": [
+                                "oldinventorynumber1234",
+                                "test-hundi"
+                            ]
+                        }
+                    ]
+                },
+                "to": {
+                    "memberSet": [
+                        {
+                            "uri": "http://uri.gbv.de/terminology/test/4773aa9e-e62a-4884-a1ff-c342179b9bc2",
+                            "type": [
+                                "http://www.w3.org/2004/02/skos/core#Concept",
+                                "http://vocab.getty.edu/ontology#PersonConcept",
+                                "http://xmlns.com/foaf/spec/#term_Person",
+                                "http://d-nb.info/standards/elementset/gnd#Person"
+                            ],
+                            "prefLabel": {
+                                "zxx": "Jean Le Depensier"
+                            },
+                            "notation": []
+                        }
+                    ]
+                }
+            },
+            {
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#relatedMatch"
+                ],
+                "from": {
+                    "memberSet": [
+                        {
+                            "uri": "https://officialuri.com/1234_basic"
+                        }
+                    ]
+                },
+                "to": {
+                    "memberSet": [
+                        {
+                            "uri": "https://gbv.github.io/jskos/jskos.html#extension-with-custom-fields"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#relatedMatch"
+                ],
+                "from": {
+                    "memberSet": [
+                        {
+                            "uri": "https://officialuri.com/1234_basic"
+                        }
+                    ]
+                },
+                "to": {
+                    "memberSet": [
+                        {
+                            "uri": "http://uri.gbv.de/terminology/test/25f83f1e-7d51-48b8-9035-60ddfe03f77a"
+                        }
+                    ]
+                }
+            }
+        ],
+        "notation": [
+            "oldinventorynumber1234",
+            "test-hundi"
+        ],
+        "prefLabel": {
+            "de": "Testperson f\u00fcr RDF"
+        },
+        "altLabel": {
+            "fr": [
+                "Alternative Bezeiccccccchnung"
+            ]
+        },
+        "hiddenLabel": {
+            "ar": [
+                "versteckttttt nur suche",
+                "suche 2222"
+            ]
+        },
+        "definition": {
+            "de": [
+                "Dies ist ein biographischer Text in deutscher Sprache.",
+                "Beispieldefinition"
+            ],
+            "en": [
+                "This is a Text in english for the bio"
+            ],
+            "ar": [
+                "noch eine zweite"
+            ]
+        },
+        "note": {
+            "de": [
+                "Anmerkung Anmerkung"
+            ]
+        },
+        "topConceptOf": [
+            {
+                "uri": "http://uri.gbv.de/terminology/cron_schedule_expression/",
+                "prefLabel": {
+                    "de": "Cron-Zeitplanausdruck"
+                },
+                "type": [
+                    "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+                ],
+                "notation": [
+                    "cron_schedule_expression"
+                ]
+            }
+        ],
+        "broader": [],
+        "ancestors": [],
+        "narrower": [],
+        "location": {
+            "type": "GeometryCollection",
+            "geometries": [
+                {
+                    "type": "Point",
+                    "coordinates": [
+                        16.120302734373695,
+                        54.16671481360663
+                    ]
+                },
+                {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                10.843651692076918,
+                                51.59836390901006
+                            ],
+                            [
+                                11.76725563844957,
+                                50.11968152232808
+                            ],
+                            [
+                                13.411721201502473,
+                                50.807978372143054
+                            ],
+                            [
+                                13.366667350460716,
+                                52.140819082614314
+                            ],
+                            [
+                                10.843651692076918,
+                                51.59836390901006
+                            ]
+                        ]
+                    ]
+                }
+            ]
+        },
+        "depiction": [
+            "https://dante.gbv.de/eas/partitions-inline/2/0/1000/1913/9a9b84bc667d67931740b7b32b7a33ea5accd72b/image/png/avatar_tobi-small.png",
+            "https://dante.gbv.de/eas/partitions-inline/2/0/1000/1915/f586b20b1a5c38987c6fbc9fa212e4adce8d0165/image/jpeg/7124279_l_202537f30d04c2c57f2ad10463a82663-small.jpg"
+        ],
+        "endDate": "2098",
+        "endPlace": [
+            {
+                "uri": "http://vocab.getty.edu/tgn/7463645",
+                "prefLabel": {
+                    "und": "London Road Station"
+                }
+            }
+        ],
+        "source": [
+            {
+                "prefLabel": {
+                    "und": "C. Eul-Matern, \u201eAkupunktur bei Krankheiten von Hund und Katze Westliche Indikation - chinesische Diagnostik und Therapie\u201c. Thieme, Stuttgart, 2024,. Verf\u00fcgbar unter: https://nbn-resolving.org/urn:nbn:de:bsz:24-epflicht-3134157."
+                },
+                "qualifiedLiterals": {
+                    "https://schema.org/pagination": [
+                        {
+                            "type": [
+                                "http://www.w3.org/2008/05/skos-xl#Label"
+                            ],
+                            "literal": {
+                                "string": "123",
+                                "language": "und"
+                            }
+                        }
+                    ]
+                },
+                "uri": "http://uri.gbv.de/document/opac-de-627:ppn:1895369606"
+            },
+            {
+                "prefLabel": {
+                    "und": "Freitextquelle text1"
+                }
+            },
+            {
+                "url": "https://dante.gbv.de/#/detail/bf8f9408-65f0-46f2-a23e-aeb90bd26670"
+            }
+        ],
+        "media": [
+            {
+                "@context": "https://iiif.io/api/presentation/3/context.json",
+                "type": "Manifest",
+                "items": [],
+                "thumbnail": [
+                    {
+                        "type": "Image",
+                        "id": "https://dante.gbv.de/eas/partitions-inline/1/0/1000/1913/91255f21839037c3faa3d8f8c35aec891b7b1f16/image/png",
+                        "format": "image/png"
+                    }
+                ],
+                "rights": [
+                    "http://www.wtfpl.net/"
+                ],
+                "metadata": [
+                    {
+                        "label": {
+                            "en": [
+                                "Author"
+                            ]
+                        },
+                        "value": {
+                            "und": [
+                                "Thomas Konradi"
+                            ]
+                        }
+                    },
+                    {
+                        "label": {
+                            "en": [
+                                "Rightsholder"
+                            ]
+                        },
+                        "value": {
+                            "und": [
+                                "Tobias Helms"
+                            ]
+                        }
+                    },
+                    {
+                        "label": {
+                            "en": [
+                                "Note"
+                            ]
+                        },
+                        "value": {
+                            "und": [
+                                "noch eine Anmerkung dazu"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "@context": "https://iiif.io/api/presentation/3/context.json",
+                "type": "Manifest",
+                "items": [],
+                "thumbnail": [
+                    {
+                        "type": "Image",
+                        "id": "https://dante.gbv.de/eas/partitions-inline/1/0/1000/1915/bdfec4b78d903e912a6454f254615f73fd970d53/image/jpeg",
+                        "format": "image/jpg"
+                    }
+                ],
+                "rights": [
+                    "http://creativecommons.org/licenses/by-sa/4.0/"
+                ],
+                "metadata": [
+                    {
+                        "label": {
+                            "en": [
+                                "Note"
+                            ]
+                        },
+                        "value": {
+                            "und": [
+                                "\u00f6ffentlich"
+                            ]
+                        }
+                    }
+                ]
+            }
+        ],
+        "qualifiedRelations": {
+            "http://uri.gbv.de/terminology/ontologic_relation/c6cf731a-47cb-4e8f-a1af-2b9a5de01981": [
+                {
+                    "resource": {
+                        "uri": "http://uri.gbv.de/terminology/dante/4773aa9e-e62a-4884-a1ff-c342179b9bc2"
+                    }
+                }
+            ],
+            "http://uri.gbv.de/terminology/ontologic_relation/ce5c55f8-9f37-4c54-8003-74121373f687": [
+                {
+                    "resource": {
+                        "uri": "http://uri.gbv.de/terminology/dante/d126e117-0e8f-4b52-98ee-61601096125b"
+                    }
+                }
+            ],
+            "https://schema.org/gender": [
+                {
+                    "rank": "preferred",
+                    "resource": {
+                        "prefLabel": {
+                            "de": "m\u00e4nnlich",
+                            "en": "male"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/gender/a0e9160d-2db0-4030-80df-c96b6bfc49e5"
+                    }
+                }
+            ],
+            "https://w3id.org/dpv/pd#MaritalStatus": [
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Ledig",
+                            "en": "Unmarried"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/marital_status/55aa53cb-999f-46c5-8620-ac8d38ee4d50"
+                    },
+                    "startDate": "1500-01-01",
+                    "endDate": "1550-12-31",
+                    "rank": "preferred"
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Verheiratet",
+                            "en": "Marriage"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/marital_status/264094f4-4166-461c-84a5-623b8f27346b"
+                    },
+                    "endDate": "1990-12-31",
+                    "rank": "normal"
+                }
+            ],
+            "http://www.cidoc-crm.org/cidoc-crm/P11i_participated_in": [
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Geburt von Zolan Pensu",
+                            "en": "Birth",
+                            "tg": "Birth of Zolan Pensu (tadschikisch)",
+                            "fr": "Birtthhhh de Zolan Pensu"
+                        },
+                        "type": [
+                            "http://www.w3.org/2004/02/skos/core#Concept",
+                            "http://www.cidoc-crm.org/cidoc-crm/E5_Event",
+                            "http://uri.gbv.de/terminology/biographie_chronicle_event/3b093d72-fe56-471b-9e5e-227943e34876"
+                        ],
+                        "altLabel": {
+                            "de": [
+                                "noch ein deutscher titel"
+                            ]
+                        },
+                        "startDate": "1499-12-12",
+                        "endDate": "1499-12-12",
+                        "scopeNote": {
+                            "und": [
+                                "Ende des 15. Jahrhunderts"
+                            ]
+                        },
+                        "place": [
+                            {
+                                "prefLabel": {
+                                    "und": "London"
+                                },
+                                "altLabel": {
+                                    "und": [
+                                        "City of London",
+                                        "Lone",
+                                        "Tower of London"
+                                    ]
+                                },
+                                "uri": "http://uri.gbv.de/terminology/prizepapers_place/166efe51-db80-4f47-8de2-26424d1676aa",
+                                "mappings": [
+                                    {
+                                        "type": [
+                                            "http://www.w3.org/2004/02/skos/core#exactMatch"
+                                        ],
+                                        "from": {
+                                            "memberSet": [
+                                                {
+                                                    "uri": "http://uri.gbv.de/terminology/prizepapers_place/166efe51-db80-4f47-8de2-26424d1676aa"
+                                                }
+                                            ]
+                                        },
+                                        "to": {
+                                            "memberChoice": [
+                                                {
+                                                    "uri": "http://geonames.org/2643744"
+                                                },
+                                                {
+                                                    "uri": "https://d-nb.info/gnd/7844609-0"
+                                                },
+                                                {
+                                                    "uri": "http://uri.gbv.de/terminology/gn250/DEBKGGND00001ZIO"
+                                                },
+                                                {
+                                                    "uri": "http://vocab.getty.edu/tgn/1100671"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "qualifiedRelations": {
+                            "http://www.cidoc-crm.org/cidoc-crm/P11_had_participant": [
+                                {
+                                    "resource": {
+                                        "prefLabel": {
+                                            "de": "Apfelsaftkonzentrat, apple juice",
+                                            "en": "Apfelsaftkonzentrat, apple juice"
+                                        },
+                                        "uri": "http://uri.gbv.de/terminology/dante/c94ef65f-c942-4ddf-b4ab-b35986ea1759"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Todestag",
+                            "en": "Death"
+                        },
+                        "type": [
+                            "http://www.w3.org/2004/02/skos/core#Concept",
+                            "http://www.cidoc-crm.org/cidoc-crm/E5_Event",
+                            "http://uri.gbv.de/terminology/biographie_chronicle_event/dc2a283c-13f6-4d39-ac79-d768daaf64b0"
+                        ],
+                        "startDate": "2098-01-01",
+                        "endDate": "2098-01-01",
+                        "place": [
+                            {
+                                "prefLabel": {
+                                    "und": "FREITEXT"
+                                },
+                                "altLabel": {
+                                    "und": [
+                                        "London Road Station"
+                                    ]
+                                },
+                                "uri": "http://vocab.getty.edu/tgn/7463645"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Heiligsprechung",
+                            "en": "Canonizations"
+                        },
+                        "type": [
+                            "http://www.w3.org/2004/02/skos/core#Concept",
+                            "http://www.cidoc-crm.org/cidoc-crm/E5_Event",
+                            "http://uri.gbv.de/terminology/biographie_chronicle_event/29b762e1-c590-466c-8e8a-9374da6f10d5"
+                        ],
+                        "startDate": "2000-01-01/2001-12-31",
+                        "endDate": "2000-01-01/2001-12-31"
+                    }
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Gr\u00fcndung",
+                            "en": "Foundation (action or condition)"
+                        },
+                        "type": [
+                            "http://www.w3.org/2004/02/skos/core#Concept",
+                            "http://www.cidoc-crm.org/cidoc-crm/E5_Event",
+                            "http://uri.gbv.de/terminology/biographie_chronicle_event/eaa5dcdb-4272-474a-b6f1-cd498530c1ef"
+                        ]
+                    }
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Ausbildung",
+                            "en": "Education"
+                        },
+                        "type": [
+                            "http://www.w3.org/2004/02/skos/core#Concept",
+                            "http://www.cidoc-crm.org/cidoc-crm/E5_Event",
+                            "http://uri.gbv.de/terminology/biographie_chronicle_phase/293474e0-f504-4e68-aeb9-178d3fa51775"
+                        ],
+                        "startDate": "1600-12-31",
+                        "endDate": "1700-01-01",
+                        "scopeNote": {
+                            "und": [
+                                "Da und dort"
+                            ]
+                        },
+                        "place": [
+                            {
+                                "prefLabel": {
+                                    "und": "Hannover"
+                                },
+                                "altLabel": {
+                                    "und": [
+                                        "Hannover, Landeshauptstadt",
+                                        "Landkreis Hannover",
+                                        "Hannover Bismarckstra\u00dfe (Bahnhof)",
+                                        "Hannibalis Ins."
+                                    ]
+                                },
+                                "uri": "http://uri.gbv.de/terminology/prizepapers_place/6c081078-e17b-4e0a-acc7-8c4b7c0aff71",
+                                "mappings": [
+                                    {
+                                        "type": [
+                                            "http://www.w3.org/2004/02/skos/core#exactMatch"
+                                        ],
+                                        "from": {
+                                            "memberSet": [
+                                                {
+                                                    "uri": "http://uri.gbv.de/terminology/prizepapers_place/6c081078-e17b-4e0a-acc7-8c4b7c0aff71"
+                                                }
+                                            ]
+                                        },
+                                        "to": {
+                                            "memberChoice": [
+                                                {
+                                                    "uri": "http://geonames.org/6559065"
+                                                },
+                                                {
+                                                    "uri": "https://d-nb.info/gnd/4023352-2"
+                                                },
+                                                {
+                                                    "uri": "http://uri.gbv.de/terminology/gn250/DEBKGGND00005AKS"
+                                                },
+                                                {
+                                                    "uri": "http://vocab.getty.edu/tgn/8712919"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "qualifiedRelations": {
+                            "http://www.cidoc-crm.org/cidoc-crm/P11_had_participant": [
+                                {
+                                    "resource": {
+                                        "prefLabel": {
+                                            "de": "Jean Le Depensier",
+                                            "en": "Jean Le Depensier"
+                                        },
+                                        "uri": "http://uri.gbv.de/terminology/dante/4773aa9e-e62a-4884-a1ff-c342179b9bc2"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Aktivit\u00e4t (Profession)",
+                            "en": "Active (professional function)"
+                        },
+                        "type": [
+                            "http://www.w3.org/2004/02/skos/core#Concept",
+                            "http://www.cidoc-crm.org/cidoc-crm/E5_Event",
+                            "http://uri.gbv.de/terminology/biographie_chronicle_phase/b746e14f-134e-413c-bcb6-a3871833f801"
+                        ]
+                    }
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Aktivit\u00e4t (Profession)",
+                            "en": "Active (professional function)"
+                        },
+                        "type": [
+                            "http://www.w3.org/2004/02/skos/core#Concept",
+                            "http://www.cidoc-crm.org/cidoc-crm/E5_Event",
+                            "http://uri.gbv.de/terminology/biographie_chronicle_phase/b746e14f-134e-413c-bcb6-a3871833f801"
+                        ],
+                        "endDate": "0400-01-01/0400-12-31"
+                    }
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Aktivit\u00e4t (Profession)",
+                            "en": "Active (professional function)"
+                        },
+                        "type": [
+                            "http://www.w3.org/2004/02/skos/core#Concept",
+                            "http://www.cidoc-crm.org/cidoc-crm/E5_Event",
+                            "http://uri.gbv.de/terminology/biographie_chronicle_phase/b746e14f-134e-413c-bcb6-a3871833f801"
+                        ],
+                        "startDate": "0100-12-31"
+                    }
+                }
+            ],
+            "https://schema.org/hasOccupation": [
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Illuminator",
+                            "en": "Illuminators (manuscript artists)"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/person_role/ed149168-90a2-4b7d-95d5-be7f89af181e"
+                    },
+                    "startDate": "1800-01-01",
+                    "endDate": "1800-09-09",
+                    "rank": "normal"
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Kupferstecher",
+                            "en": "Engravers (printmakers)"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/person_role/89f0237e-b040-48c2-bde7-22c56748ef91"
+                    },
+                    "startDate": "1810-01-01",
+                    "endDate": "1829-12-31",
+                    "rank": "preferred"
+                }
+            ],
+            "http://gov.genealogy.net/ontology.owl#hasDenomination": [
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Halveti",
+                            "en": "Halveti"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/religion/40ea3ccb-ff2d-4c7a-b36d-f3dba146243e"
+                    },
+                    "startDate": "1900-01-01",
+                    "endDate": "1900-12-31",
+                    "rank": "preferred"
+                }
+            ],
+            "https://www.wikidata.org/wiki/Property:P102": [
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "B\u00fcndnis 90",
+                            "en": "B\u00fcndnis 90"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/party/1648e579-f47c-4704-bb8a-c9271ec8d238"
+                    },
+                    "startDate": "1900-01-01",
+                    "endDate": "1910-12-31",
+                    "rank": "preferred"
+                }
+            ],
+            "https://schema.org/nationality": [
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "barbadisch",
+                            "en": "Barbadian"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/citizenship_iso_3166/b5a77dea-e22a-421a-b163-1a7ab1e8c680"
+                    },
+                    "startDate": "2020-01-01",
+                    "endDate": "2020-12-31",
+                    "rank": "preferred"
+                },
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "deutsch",
+                            "en": "German"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/citizenship_iso_3166/dfc80ca1-537f-4d52-b5d0-4162e650fe57"
+                    },
+                    "startDate": "1945-01-01",
+                    "endDate": "1945-12-31",
+                    "rank": "normal"
+                }
+            ],
+            "http://uri.gbv.de/terminology/person_relation/a72c812a-0d5c-4a6d-b812-ac4c66f54867": [
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Jean Le Depensier",
+                            "en": "Jean Le Depensier"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/dante/4773aa9e-e62a-4884-a1ff-c342179b9bc2"
+                    },
+                    "startDate": "1998-12-31",
+                    "endDate": "1600-01-01/1600-12-31"
+                }
+            ],
+            "http://uri.gbv.de/terminology/prizepapers_actor_actor_relation/cbf0a49f-29d9-41c4-b729-bc98d9ea43d6": [
+                {
+                    "resource": {
+                        "prefLabel": {
+                            "de": "Helmuth Kohl",
+                            "en": "Helmuth Kohl"
+                        },
+                        "uri": "http://uri.gbv.de/terminology/dante/c2b6df6a-ab19-4d53-ad4f-874a36c41d69"
+                    }
+                }
+            ],
+            "https://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                {
+                    "resource": {
+                        "uri": "http://www.geonames.org/ontology#S.MNMT",
+                        "prefLabel": {
+                            "de": "Denkmal",
+                            "en": "monument"
+                        }
+                    },
+                    "rank": "normal"
+                },
+                {
+                    "resource": {
+                        "uri": "http://uri.gbv.de/terminology/place_type_gnd/67cea6a9-33b5-4cde-b4ff-18a9b7527575",
+                        "prefLabel": {
+                            "de": "Bauwerk oder Denkmal",
+                            "en": "BuildingOrMemorial"
+                        }
+                    },
+                    "rank": "normal"
+                },
+                {
+                    "resource": {
+                        "uri": "http://www.geonames.org/ontology#S.RUIN",
+                        "prefLabel": {
+                            "de": "Ruine",
+                            "en": "ruin(s)"
+                        }
+                    },
+                    "rank": "preferred"
+                }
+            ]
+        },
+        "qualifiedLiterals": {
+            "http://www.w3.org/2004/02/skos/core#notation": [
+                {
+                    "literal": {
+                        "string": "oldinventorynumber1234",
+                        "language": "und"
+                    },
+                    "type": [
+                        "http://www.w3.org/2008/05/skos-xl#Label",
+                        "http://uri.gbv.de/terminology/signature_type/20b0497f-4e4b-4c30-9b27-7436880dce19"
+                    ],
+                    "startDate": "2024-08-13",
+                    "endDate": "2024-09-01",
+                    "rank": "normal"
+                },
+                {
+                    "literal": {
+                        "string": "test-hundi",
+                        "language": "und"
+                    },
+                    "type": [
+                        "http://www.w3.org/2008/05/skos-xl#Label",
+                        "http://uri.gbv.de/terminology/signature_type/1c03ea24-f28a-4c69-9121-bb0e67e4b166"
+                    ],
+                    "endDate": "1900-12-31",
+                    "rank": "preferred"
+                }
+            ],
+            "http://www.w3.org/2008/05/skos-xl#prefLabel": [
+                {
+                    "type": [
+                        "http://www.w3.org/2008/05/skos-xl#Label",
+                        "http://uri.gbv.de/terminology/historic_flag/65b1b752-0c51-4037-93ac-e27f9b945fd4",
+                        "http://uri.gbv.de/terminology/other_flag/2558eb82-ed0f-4763-aa61-7ed113506fb3",
+                        "http://uri.gbv.de/terminology/part_of_speech/9e5d754b-313c-4c0d-b088-3f7e3dfb3d43"
+                    ],
+                    "literal": {
+                        "string": "Testperson f\u00fcr RDF",
+                        "language": "de"
+                    },
+                    "rank": "preferred",
+                    "startDate": "1998-01-01",
+                    "endDate": "2001-12-31",
+                    "source": [
+                        {
+                            "prefLabel": {
+                                "und": "Freitextquelle"
+                            }
+                        },
+                        {
+                            "prefLabel": {
+                                "und": "Freitextquelle222 (ohne seite)"
+                            }
+                        },
+                        {
+                            "url": "https://www.kitchenstories.com/de/rezepte/gebratene-udon-nudeln-nach-japanischer-art-yaki-udon"
+                        },
+                        {
+                            "url": "https://www.w3.org/TR/json-ld/#specifying-the-type"
+                        }
+                    ]
+                }
+            ],
+            "http://www.w3.org/2008/05/skos-xl#altLabel": [
+                {
+                    "type": [
+                        "http://www.w3.org/2008/05/skos-xl#Label"
+                    ],
+                    "literal": {
+                        "string": "Alternative Bezeiccccccchnung",
+                        "language": "fr"
+                    },
+                    "rank": "preferred"
+                }
+            ],
+            "http://www.w3.org/2008/05/skos-xl#hiddenLabel": [
+                {
+                    "type": [
+                        "http://www.w3.org/2008/05/skos-xl#Label"
+                    ],
+                    "literal": {
+                        "string": "versteckttttt nur suche",
+                        "language": "ar"
+                    },
+                    "rank": "preferred"
+                },
+                {
+                    "type": [
+                        "http://www.w3.org/2008/05/skos-xl#Label"
+                    ],
+                    "literal": {
+                        "string": "suche 2222",
+                        "language": "ar"
+                    },
+                    "rank": "normal"
+                }
+            ],
+            "https://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation": [
+                {
+                    "literal": {
+                        "string": "Dies ist ein biographischer Text in deutscher Sprache.",
+                        "language": "de"
+                    }
+                },
+                {
+                    "literal": {
+                        "string": "This is a Text in english for the bio",
+                        "language": "en"
+                    }
+                },
+                {
+                    "literal": {
+                        "string": "Anmerkung zur gesamten Biographie",
+                        "language": "und"
+                    }
+                }
+            ],
+            "https://d-nb.info/standards/elementset/gnd#academicDegree": [
+                {
+                    "literal": {
+                        "string": "Akademischer Titel 123",
+                        "language": "und"
+                    }
+                }
+            ],
+            "http://www.w3.org/2004/02/skos/core#note": [
+                {
+                    "literal": {
+                        "string": "Anmerkung Anmerkung",
+                        "language": "de"
+                    },
+                    "source": [
+                        {
+                            "prefLabel": {
+                                "und": "J. Weishorn, T. Tischer, P. Niemeyer, T. Renkawitz, und Y. Bangert, \u201eThe role of autologous bone grafting in matrix-associated autologous chondrocyte implantation at the knee Results from the German Cartilage Registry (KnorpelRegister DGOU)\u201c, Knee surgery, sports traumatology, arthroscopy, Berlin, 1993, Bd. 32. S. 929-940, 2024, doi: 10.1002/ksa.12106."
+                            },
+                            "qualifiedLiterals": {
+                                "https://schema.org/pagination": [
+                                    {
+                                        "type": [
+                                            "http://www.w3.org/2008/05/skos-xl#Label"
+                                        ],
+                                        "literal": {
+                                            "string": "Quelle GVK S. 12",
+                                            "language": "und"
+                                        }
+                                    }
+                                ]
+                            },
+                            "uri": "http://uri.gbv.de/document/opac-de-627:ppn:1899362398"
+                        },
+                        {
+                            "prefLabel": {
+                                "und": "Quelle Freeeiiitext"
+                            },
+                            "qualifiedLiterals": {
+                                "https://schema.org/pagination": [
+                                    {
+                                        "type": [
+                                            "http://www.w3.org/2008/05/skos-xl#Label"
+                                        ],
+                                        "literal": {
+                                            "string": "Seite 123",
+                                            "language": "und"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "prefLabel": {
+                                "und": "Quelle Freitext2 (ohne Seite)("
+                            }
+                        },
+                        {
+                            "url": "https://www.w3.org/TR/json-ld/#specifying-the-type"
+                        },
+                        {
+                            "url": "https://gbv.github.io/jskos/context.json"
+                        }
+                    ]
+                }
+            ],
+            "http://www.w3.org/2004/02/skos/core#definition": [
+                {
+                    "literal": {
+                        "string": "Beispieldefinition",
+                        "language": "de"
+                    }
+                },
+                {
+                    "literal": {
+                        "string": "noch eine zweite",
+                        "language": "ar"
+                    }
+                }
+            ],
+            "http://www.w3.org/2004/02/skos/core#example": [
+                {
+                    "literal": {
+                        "string": "exampletext",
+                        "language": "en"
+                    },
+                    "source": [
+                        {
+                            "prefLabel": {
+                                "und": "M. Ferdinand, \u201eCatboy gegen Robo-Cat\u201c, PJ Masks, Bd. Nr. 8. Nelson, Hamburg, 2020."
+                            },
+                            "qualifiedLiterals": {
+                                "https://schema.org/pagination": [
+                                    {
+                                        "type": [
+                                            "http://www.w3.org/2008/05/skos-xl#Label"
+                                        ],
+                                        "literal": {
+                                            "string": "23",
+                                            "language": "und"
+                                        }
+                                    }
+                                ]
+                            },
+                            "uri": "http://uri.gbv.de/document/opac-de-627:ppn:1693504324"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

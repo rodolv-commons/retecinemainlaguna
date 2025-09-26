@@ -177,6 +177,12 @@
 	background: transparent;
 }
 
+.venues-title-button {
+	cursor: pointer;
+	border: 0;
+	background: transparent;
+}
+
 .venues-pin-button:disabled {
 	opacity: 0.4;
 	cursor: default;
@@ -215,6 +221,21 @@
 		margin-left: auto;
 	}
 
+	.venues-list__wrapper {
+		grid-area: locations;
+		flex-direction: row-reverse;
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+
+	.venue-item__wrapper {
+		width: 500px;
+	}
+
+	.venue-item__wrapper:first-child {
+		padding-top: calc(var(--spacing-unit) * 2);
+	}
+
 	.venues-map__wrapper {
 		grid-area: map;
 		padding-top: 0;
@@ -222,16 +243,22 @@
 	}
 
 	.venues__title {
-		margin: 0;
 		grid-area: title;
+		margin: 0;
 		padding-top: 0;
 	}
 
 	.venues__text {
-		padding-top: 0;
 		grid-area: title-text;
+		padding-top: 0;
+	}
+
+	.venues-pin-button {
+		display: none;
 	}
 }
 
 @media (min-width: 1368px) {
+	.venues__wrapper {
+	}
 }
