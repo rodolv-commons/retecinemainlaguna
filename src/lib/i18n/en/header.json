@@ -1,52 +1,9 @@
 {
-	"about": {
-		"label": "About us",
-		"entries": {
-			"association": "The association",
-			"mission": "Statute/Mission",
-			"team": "Team and collaborators",
-			"contacts": "Locations and contacts"
-		}
-	},
-	"activities": {
-		"label": "Activities",
-		"entries": {
-			"screenings": "Screenings and showcases",
-			"workshops": "Workshops / Training",
-			"collaborations": "Collaborations",
-			"archive": "Event archive"
-		}
-	},
 	"festival": {
 		"label": "InLaguna Film Festival",
 		"entries": {
 			"overview": "Festival overview",
-			"program": "Current edition program",
-			"archive": "Past editions archive",
-			"guests": "Guests / Jury"
-		}
-	},
-	"news": {
-		"label": "News & Media",
-		"entries": {
-			"articles": "Articles and announcements",
-			"press": "Press coverage",
-			"media": "Photos and videos"
-		}
-	},
-	"support": {
-		"label": "Support us",
-		"entries": {
-			"member": "Become a member",
-			"donations": "Donations",
-			"volunteering": "Volunteering"
-		}
-	},
-	"newsletter": {
-		"label": "Newsletter",
-		"entries": {
-			"subscribe": "Subscribe",
-			"archive": "Archive"
+			"program": "Current edition program"
 		}
 	}
 }

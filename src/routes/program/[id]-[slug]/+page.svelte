@@ -17,7 +17,7 @@
 
 	//const heroImgPath = `/images/films/${film?.id}_full.jpg`;
 	const hero2ImgPath = `/images/films/${film?.id}_card.jpg`;
-	const directotImgPath = `/images/directors/${film?.director_id}_card.jpg`;
+	const directorImgPath = `/images/directors/${film?.director_id}_card.jpg`;
 
 	// const widths = [480, 768, 1024, 1440, 1920]; // whatever you have generated
 	// const sizes = '(max-width: 768px) 96vw, (max-width: 1200px) 60vw, 60vw';
@@ -65,7 +65,7 @@
 				<div class="film-director__title">Meet the Artist</div>
 				<div class="film-director__section">
 					<div class="film-director-image__wrapper">
-						<img class="film-director__image" alt="Directors" src={directotImgPath} />
+						<img class="film-director__image" alt="Directors" src={directorImgPath} />
 					</div>
 					<div class="film-director__bio-details">
 						<div class="film-director__name">{director.name}</div>

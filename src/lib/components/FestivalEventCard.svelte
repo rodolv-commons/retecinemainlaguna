@@ -3,7 +3,7 @@
 
 	let { locale, event } = $props();
 
-	const imgPath = 'src/lib/images/hero_image.webp';
+	const imgPath = '/images/hero_image.webp';
 </script>
 
 <div class="card">

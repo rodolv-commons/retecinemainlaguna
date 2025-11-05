@@ -226,9 +226,6 @@
 		padding-top: calc(2 * var(--spacing-unit));
 	}
 
-	.film-director-image__wrapper {
-	}
-
 	.film-director__image {
 		height: 100%;
 	}

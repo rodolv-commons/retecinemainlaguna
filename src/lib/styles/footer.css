@@ -1,14 +1,44 @@
 footer {
-	/* background-color: var(--color-brand-secondary);
-	color: var(--color-brand-primary); */
-	height: calc(var(--spacing-unit) * 30);
-	display: flex;
-	flex-direction: column-reverse;
+	background-color: #888d81;
+	font-size: 16px;
 }
 .footer__wrapper {
-	display: grid;
-	width: 90%;
-	margin: 0 auto;
 	padding: calc(var(--spacing-unit) * 2);
 	border: 1px solid red;
+	height: 100%;
+}
+
+.footer-sponsor__wrapper {
+	border-top: 1px solid rgb(58, 45, 45);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.sponsor-item__wrapper {
+	width: 200px;
+}
+
+/* Support section */
+
+.support__wrapper {
+	border-top: 1px solid rgb(58, 45, 45);
+	padding-top: calc(var(--spacing-unit) * 2);
+	padding-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.support-image {
+	padding-top: calc(var(--spacing-unit) * 2);
+	width: 200px;
+}
+
+/* Legal section */
+.legal-infos__list {
+	display: flex;
+	justify-content: space-between;
+	color: rgb(58, 45, 45);
+}
+
+.legal-infos__item {
+	cursor: pointer;
 }

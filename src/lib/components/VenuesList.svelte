@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { MapPinOutline, FacebookSolid, InstagramSolid } from 'flowbite-svelte-icons';
 	import type { Venue } from '$lib/types/Film';
-	// import { shuffled } from '$lib/utils/utils';
+	import { shuffled } from '$lib/utils/utils';
 
 	let { venues, onFocusOnMap } = $props<{
 		venues: Venue[];
@@ -18,46 +18,23 @@
 		});
 	}
 
-	// const venuesShuffled = shuffled<Venue>(venues);
+	const venuesShuffled = shuffled<Venue>(venues);
 </script>
 
-<!-- <div class="venues-nav__wrapper">
-	<div class="direction-navigation">
-		<button class="direction-navigation__button" aria-label="Arrow">
-			<span class="direction-navigation__icon">
-				<svg
-					width="25"
-					height="25"
-					viewBox="0 0 25 25"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M10.014 3L0 12.795l10.014 9.795 1.447-1.395-7.612-7.404H25v-1.976H3.849l7.612-7.404L10.014 3z"
-						fill="white"
-					>
-					</path>
-				</svg>
-			</span>
-		</button>
-		<button class="direction-navigation__button" aria-label="Arrow">
-			<span class="direction-navigation__icon">
-				<svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path
-						d="M14.986 22.59L25 12.795 14.986 3 13.54 4.395l7.612 7.404H0v1.975h21.151L13.54 21.18l1.447 1.41z"
-						fill="white"
-					>
-					</path>
-				</svg>
-			</span>
-		</button>
-	</div>
-</div> -->
 <ul class="venues-list__wrapper">
-	{#each venues as venue (venue)}
+	{#each venuesShuffled as venue (venue)}
 		<li class="venue-item__wrapper">
 			<div class="venues-list-left__wrapper">
-				<div class="venue-name">{venue.name}</div>
+				<button
+					class="venues-title-button"
+					onclick={() => focus(venue)}
+					aria-label={`Centra ${venue.name} sulla mappa`}
+					disabled={!venue.lat || !venue.lon}
+					title={`Centra ${venue.name} sulla mappa`}
+				>
+					<span class="venue-name">{venue.name}</span>
+				</button>
+
 				<div class="venue-address">
 					<div class="venue-street-civic">{venue.street} {venue.civic}</div>
 					<div class="venue-zip-city">{venue.zip} {venue.city}</div>
